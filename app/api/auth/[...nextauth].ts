@@ -1,21 +1,5 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import bcrypt from "bcryptjs";
-
-// Simple in-memory user store (demo only - use database in production)
-const users: any[] = [
-  {
-    id: "1",
-    name: "John Doe",
-    email: "john@example.com",
-    password: bcrypt.hashSync("password123", 10),
-    avatar: "🏋️",
-    fitnessLevel: "Intermediate",
-    goal: "Build Muscle",
-    completedWorkouts: 15,
-    streakDays: 7,
-  },
-];
 
 const handler = NextAuth({
   providers: [
@@ -30,27 +14,38 @@ const handler = NextAuth({
           throw new Error("Email and password required");
         }
 
-        const user = users.find((u) => u.email === credentials.email);
-        
-        if (!user) {
-          throw new Error("No user found with this email");
+        try {
+          const response = await fetch(
+            `${process.env.NEXTAUTH_URL || "http://localhost:3000"}/api/auth/login`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                email: credentials.email,
+                password: credentials.password,
+              }),
+            }
+          );
+
+          if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.error || "Login failed");
+          }
+
+          const user = await response.json();
+          return {
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            image: user.avatar,
+            fitnessLevel: user.fitnessLevel,
+            goal: user.goal,
+          };
+        } catch (error) {
+          throw new Error(
+            error instanceof Error ? error.message : "Login failed"
+          );
         }
-
-        const isPasswordValid = bcrypt.compareSync(
-          credentials.password,
-          user.password
-        );
-
-        if (!isPasswordValid) {
-          throw new Error("Invalid password");
-        }
-
-        return {
-          id: user.id,
-          name: user.name,
-          email: user.email,
-          image: user.avatar,
-        };
       },
     }),
   ],
@@ -62,20 +57,16 @@ const handler = NextAuth({
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
+        token.fitnessLevel = user.fitnessLevel;
+        token.goal = user.goal;
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
         session.user.id = token.id as string;
-        const fullUser = users.find((u) => u.email === session.user?.email);
-        if (fullUser) {
-          session.user.avatar = fullUser.avatar;
-          session.user.fitnessLevel = fullUser.fitnessLevel;
-          session.user.goal = fullUser.goal;
-          session.user.completedWorkouts = fullUser.completedWorkouts;
-          session.user.streakDays = fullUser.streakDays;
-        }
+        session.user.fitnessLevel = token.fitnessLevel as string;
+        session.user.goal = token.goal as string;
       }
       return session;
     },
@@ -83,8 +74,4 @@ const handler = NextAuth({
   secret: process.env.NEXTAUTH_SECRET || "secret-key-change-in-production",
 });
 
-// Export handler and add signup handler
 export { handler as GET, handler as POST };
-
-// Export users array for demo signup
-export { users };

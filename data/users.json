@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "$2b$10$0.2mn6STXg9m8IfMqY/c4.Vo53FHAyAdYvCQbiGl2fq2Pi2Gc0eKm",
+    "avatar": "🏋️",
+    "fitnessLevel": "Intermediate",
+    "goal": "Build Muscle",
+    "completedWorkouts": 15,
+    "streakDays": 7,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "1770922083242",
+    "name": "Test User",
+    "email": "test@example.com",
+    "password": "$2b$10$OFQKENXrNhakTM8bogw8lO2ZZeHzbSHceuHFOfYgG34ZaWfso.yuW",
+    "avatar": "👤",
+    "fitnessLevel": "Beginner",
+    "goal": "Build Muscle",
+    "completedWorkouts": 0,
+    "streakDays": 0,
+    "createdAt": "2026-02-12T18:48:03.243Z"
+  }
+]

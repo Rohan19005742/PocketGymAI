@@ -43,17 +43,35 @@ export default function SignUpPage() {
     setLoading(true);
 
     try {
-      // In a real app, you'd send this to a signup API endpoint
-      // For demo, we'll just sign in with demo credentials
+      // First, call signup API to create account
+      const signupRes = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+
+      if (!signupRes.ok) {
+        const err = await signupRes.json();
+        setError(err.error || "Signup failed");
+        setLoading(false);
+        return;
+      }
+
+      // Then sign in the user
       const result = await signIn("credentials", {
-        email: "john@example.com",
-        password: "password123",
+        email: formData.email,
+        password: formData.password,
         redirect: false,
       });
 
       if (result?.ok) {
-        // In production, redirect to onboarding flow
         window.location.href = "/progress";
+      } else {
+        setError(result?.error || "Sign in failed after signup");
       }
     } catch (err) {
       setError("An error occurred. Please try again.");
