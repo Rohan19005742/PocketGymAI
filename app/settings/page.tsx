@@ -47,8 +47,27 @@ export default function SettingsPage() {
     setSuccess("");
 
     try {
-      // In a real app, you'd send this to an update profile API endpoint
-      // For now, we'll just show a success message
+      const response = await fetch("/api/auth/update-profile", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: session?.user?.email,
+          name: formData.name,
+          fitnessLevel: formData.fitnessLevel,
+          goal: formData.goal,
+          age: formData.age,
+          weight: formData.weight,
+          height: formData.height,
+        }),
+      });
+
+      if (!response.ok) {
+        const err = await response.json();
+        setError(err.error || "Failed to update profile");
+        setLoading(false);
+        return;
+      }
+
       setSuccess("Profile updated successfully!");
       setTimeout(() => setSuccess(""), 3000);
     } catch (err) {

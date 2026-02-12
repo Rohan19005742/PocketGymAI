@@ -50,6 +50,12 @@ export function Navbar() {
                 >
                   Settings
                 </Link>
+                <Link
+                  href="/profile"
+                  className="text-neutral-300 hover:text-white transition-colors duration-200 font-medium"
+                >
+                  Profile
+                </Link>
               </>
             )}
           </div>
