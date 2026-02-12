@@ -44,6 +44,12 @@ export function Navbar() {
                 >
                   Progress
                 </Link>
+                <Link
+                  href="/settings"
+                  className="text-neutral-300 hover:text-white transition-colors duration-200 font-medium"
+                >
+                  Settings
+                </Link>
               </>
             )}
           </div>
