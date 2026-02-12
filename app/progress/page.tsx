@@ -1,5 +1,8 @@
 "use client";
 
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { TrendingUp, Calendar, Award, Flame, Target } from "lucide-react";
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
@@ -32,19 +35,47 @@ const workoutStats = [
 const colors = ["#3B82F6", "#EC4899", "#10B981", "#F59E0B"];
 
 export default function ProgressPage() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/auth/signin");
+    }
+  }, [status, router]);
+
+  if (status === "loading") {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center space-y-4">
+          <div className="w-12 h-12 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin mx-auto" />
+          <p className="text-neutral-400">Loading dashboard...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!session) {
+    return null;
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-neutral-950 via-black to-neutral-950 pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Header */}
-        <div className="space-y-4 mb-12">
+        {/* Header with personalization */}
+        <div className="space-y-4 mb-12 fade-in">
           <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/30 rounded-full">
             <TrendingUp className="w-4 h-4 text-blue-400" />
             <span className="text-xs sm:text-sm font-semibold text-blue-400">
-              Your Stats
+              {session.user?.fitnessLevel} • {session.user?.goal}
             </span>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black">Progress Dashboard</h1>
-          <p className="text-neutral-400 text-lg">Track your fitness journey with detailed analytics and insights</p>
+          <h1 className="text-4xl sm:text-5xl font-black">
+            Progress Dashboard
+          </h1>
+          <p className="text-neutral-400 text-lg">
+            Your personal data showing progress towards <span className="font-semibold text-blue-400">{session.user?.goal}</span>
+          </p>
         </div>
 
         {/* Stats Cards */}
