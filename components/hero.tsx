@@ -7,19 +7,12 @@ import Link from "next/link";
 export function Hero() {
   return (
     <section className="relative overflow-hidden pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
-      </div>
-
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-8 fade-in">
+          <div className="space-y-8 slide-up">
             {/* Badge */}
-            <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/30 rounded-full">
+            <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/30 rounded-full hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 scale-fade-in">
               <Zap className="w-4 h-4 text-blue-400" />
               <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 AI-Powered Training
@@ -28,6 +21,7 @@ export function Hero() {
 
             {/* Headline */}
             <div className="space-y-4">
+
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight">
                 Your Personal AI
                 <br />
