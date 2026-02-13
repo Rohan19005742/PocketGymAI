@@ -3,7 +3,7 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Loader2, Edit2, Trophy, Target, Zap, Flame } from "lucide-react";
+import { Loader2, Trophy, Target, Zap, Flame } from "lucide-react";
 import Link from "next/link";
 
 export default function ProfilePage() {
@@ -74,12 +74,6 @@ export default function ProfilePage() {
                 </p>
               </div>
             </div>
-            <Link href="/settings">
-              <Button className="bg-blue-500 hover:bg-blue-600 text-white flex items-center space-x-2">
-                <Edit2 className="w-4 h-4" />
-                <span>Edit Profile</span>
-              </Button>
-            </Link>
           </div>
         </div>
 
@@ -130,9 +124,9 @@ export default function ProfilePage() {
                   Talk to AI Coach
                 </Button>
               </Link>
-              <Link href="/workouts">
-                <Button className="w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold">
-                  Browse Workouts
+              <Link href="/nutritionist">
+                <Button className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold">
+                  AI Nutritionist
                 </Button>
               </Link>
               <Link href="/progress">
