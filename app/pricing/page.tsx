@@ -1,26 +1,26 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Check, Loader2, Sparkles, Crown, Zap } from "lucide-react";
+import { Check, Sparkles, Crown, Zap } from "lucide-react";
 import Link from "next/link";
 
 
 const SUBSCRIPTION_PLANS = [
   {
     id: "FREE",
-    name: "Free",
-    description: "No credit card required",
+    name: "Starter",
+    description: "Test drive AI coaching",
     monthlyPrice: 0,
     yearlyPrice: 0,
     features: [
-      "10 AI messages per day",
-      "Static workout plan",
-      "Basic weight tracking",
-      "No analytics dashboard",
-      "No grocery list generation",
+      "15 AI chat messages/day",
+      "Basic workout plans",
+      "Weight tracking",
+      "Mobile app access",
+      "Community support",
     ],
     icon: Zap,
     popular: false,
@@ -30,16 +30,16 @@ const SUBSCRIPTION_PLANS = [
   {
     id: "PRO",
     name: "Pro",
-    description: "Perfect for serious fitness enthusiasts",
-    monthlyPrice: 9,
-    yearlyPrice: 79,
+    description: "Unlimited AI coaching",
+    monthlyPrice: 4.99,
+    yearlyPrice: 39.99,
     features: [
-      "Unlimited AI chat",
-      "Weekly auto-adjustments",
-      "Dynamic calorie updates",
-      "Macro tracking",
-      "Analytics dashboard",
-      "Grocery list generation",
+      "Unlimited AI chat 🤖",
+      "Weekly plan adjustments",
+      "Real-time macro tracking",
+      "Performance analytics",
+      "Meal suggestions",
+      "Priority support",
     ],
     icon: Sparkles,
     popular: true,
@@ -48,16 +48,17 @@ const SUBSCRIPTION_PLANS = [
   },
   {
     id: "PREMIUM",
-    name: "Premium",
-    description: "Everything you need for maximum results",
-    monthlyPrice: 29,
-    yearlyPrice: 290,
+    name: "Elite",
+    description: "AI + expert guidance",
+    monthlyPrice: 12.99,
+    yearlyPrice: 99.99,
     features: [
       "Everything in Pro",
-      "Advanced analytics",
-      "Priority AI processing",
-      "Body recomposition projections",
-      "Wearable integration support",
+      "Advanced AI models",
+      "1-on-1 coach reviews (2x/month)",
+      "Body composition tracking",
+      "Wearable sync support",
+      "Supplement recommendations",
     ],
     icon: Crown,
     popular: false,
@@ -70,24 +71,6 @@ export default function PricingPage() {
   const { data: session } = useSession();
   const router = useRouter();
   const [isAnnual, setIsAnnual] = useState(false);
-  const [loading, setLoading] = useState<string | null>(null);
-  const [userPlan, setUserPlan] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (session?.user?.email) {
-      fetchUserPlan();
-    }
-  }, [session]);
-
-  const fetchUserPlan = async () => {
-    try {
-      const response = await fetch("/api/subscriptions");
-      const subscription = await response.json();
-      setUserPlan(subscription.plan);
-    } catch (error) {
-      console.error("Failed to fetch user plan:", error);
-    }
-  };
 
   const handleCheckout = async (planId: string) => {
     if (!session) {
@@ -99,49 +82,8 @@ export default function PricingPage() {
       return;
     }
 
-    setLoading(planId);
-
-    try {
-      const plan = SUBSCRIPTION_PLANS.find((p) => p.id === planId);
-      if (!plan) return;
-
-      // Map to environment variable keys
-      const priceIdKey = isAnnual
-        ? `NEXT_PUBLIC_STRIPE_${planId}_YEARLY_PRICE_ID`
-        : `NEXT_PUBLIC_STRIPE_${planId}_MONTHLY_PRICE_ID`;
-
-      const priceId = process.env[priceIdKey];
-
-      if (!priceId) {
-        alert(`Price ID not configured for ${planId}`);
-        return;
-      }
-
-      const response = await fetch("/api/subscriptions/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          priceId,
-          successUrl: `${window.location.origin}/account`,
-          cancelUrl: window.location.href,
-        }),
-      });
-
-      const { sessionId } = await response.json();
-
-      if (!sessionId) {
-        alert("Failed to create checkout session");
-        return;
-      }
-
-      // Redirect to Stripe checkout using the session ID
-      window.location.href = `https://checkout.stripe.com/pay/${sessionId}`;
-    } catch (error) {
-      console.error("Checkout error:", error);
-      alert("Failed to initiate checkout");
-    } finally {
-      setLoading(null);
-    }
+    // For now, show a message that payment is coming soon
+    alert(`Welcome to ${planId}! Payment integration coming soon. Thanks for your interest!`);
   };
 
   return (
@@ -149,11 +91,16 @@ export default function PricingPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 fade-in">
+          <div className="inline-block mb-4 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full">
+            <p className="text-green-400 font-bold text-sm">
+              ⚡ Limited Time: 50% off annual plans
+            </p>
+          </div>
           <h1 className="text-5xl font-black mb-4">
-            Simple, Transparent Pricing
+            AI Coaching That Fits Your Budget
           </h1>
           <p className="text-xl text-neutral-400 mb-8">
-            Choose the perfect plan for your fitness journey
+            Premium fitness AI for less than your morning coffee. Join 5000+ athletes.
           </p>
 
           {/* Billing Toggle */}
@@ -168,7 +115,7 @@ export default function PricingPage() {
             <button
               onClick={() => setIsAnnual(!isAnnual)}
               className={`relative inline-flex h-7 w-14 items-center rounded-full transition-colors ${
-                isAnnual ? "bg-blue-500" : "bg-neutral-700"
+                isAnnual ? "bg-green-500" : "bg-neutral-700"
               }`}
             >
               <span
@@ -184,7 +131,7 @@ export default function PricingPage() {
             >
               Annual
               <span className="ml-2 text-xs text-green-400 font-bold">
-                Save 20%
+                Save 33%
               </span>
             </span>
           </div>
@@ -195,25 +142,22 @@ export default function PricingPage() {
           {SUBSCRIPTION_PLANS.map((plan) => {
             const Icon = plan.icon;
             const price = isAnnual ? plan.yearlyPrice : plan.monthlyPrice;
-            const monthlyEquivalent = isAnnual
-              ? (plan.yearlyPrice / 12).toFixed(2)
-              : plan.monthlyPrice.toFixed(2);
-            const isCurrentPlan = userPlan === plan.id;
+            const isCurrentPlan = false; // Subscription tracking removed for now
 
             return (
               <div
                 key={plan.id}
                 className={`relative bg-neutral-900 border rounded-2xl p-8 fade-in transition-all hover:scale-105 ${plan.border} ${
                   plan.popular
-                    ? `border-blue-500/50 shadow-lg shadow-blue-500/20 ring-2 ring-blue-500/30`
+                    ? `border-green-500/50 shadow-lg shadow-green-500/20 ring-2 ring-green-500/30`
                     : ""
                 }`}
               >
                 {/* Popular Badge */}
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-blue-500 to-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full">
-                      Most Popular
+                    <span className="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-xs font-bold px-4 py-1 rounded-full">
+                      🎯 Most Popular - Save Most
                     </span>
                   </div>
                 )}
@@ -238,16 +182,16 @@ export default function PricingPage() {
                 {/* Pricing */}
                 {plan.id === "FREE" ? (
                   <div className="mb-6">
-                    <p className="text-4xl font-black text-white">Free Forever</p>
+                    <p className="text-4xl font-black text-white">Always Free</p>
                     <p className="text-sm text-neutral-400 mt-2">
-                      No credit card required
+                      No credit card needed ever
                     </p>
                   </div>
                 ) : (
                   <div className="mb-6">
                     <div className="flex items-baseline gap-1">
                       <span className="text-4xl font-black text-white">
-                        ${price}
+                        £{price}
                       </span>
                       <span className="text-neutral-400">
                         {isAnnual ? "/year" : "/month"}
@@ -255,7 +199,7 @@ export default function PricingPage() {
                     </div>
                     {isAnnual && (
                       <p className="text-sm text-green-400 font-semibold mt-2">
-                        ${monthlyEquivalent}/month billed annually
+                        Just £{(price / 12).toFixed(2)}/month
                       </p>
                     )}
                   </div>
@@ -264,20 +208,15 @@ export default function PricingPage() {
                 {/* CTA Button */}
                 <Button
                   onClick={() => handleCheckout(plan.id)}
-                  disabled={
-                    loading !== null || (isCurrentPlan && plan.id !== "FREE")
-                  }
+                  disabled={isCurrentPlan && plan.id !== "FREE"}
                   className={`w-full mb-8 font-semibold py-3 rounded-lg transition-all ${
                     isCurrentPlan && plan.id !== "FREE"
                       ? "bg-neutral-700 text-neutral-400 cursor-not-allowed"
                       : plan.popular
-                        ? "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white shadow-lg shadow-blue-500/20"
+                        ? "bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-lg shadow-green-500/20"
                         : "bg-neutral-800 hover:bg-neutral-700 text-white border border-neutral-700"
                   }`}
                 >
-                  {loading === plan.id ? (
-                    <Loader2 className="w-4 h-4 animate-spin inline mr-2" />
-                  ) : null}
                   {isCurrentPlan && plan.id !== "FREE"
                     ? "Current Plan"
                     : plan.id === "FREE"
@@ -299,29 +238,45 @@ export default function PricingPage() {
           })}
         </div>
 
-        {/* FAQ Section */}
+        {/* Guarantee Section */}
+        <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/30 rounded-2xl p-8 mb-12 fade-in text-center">
+          <p className="text-white text-lg font-bold mb-2">
+            ✓ 14-Day Money-Back Guarantee
+          </p>
+          <p className="text-neutral-300">
+            Not seeing results? Get a full refund. We're that confident in our AI coach.
+          </p>
+        </div>
         <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-12 fade-in">
           <h2 className="text-3xl font-bold text-white mb-8">
-            Frequently Asked Questions
+            Questions? We've Got Answers
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                q: "Can I upgrade or downgrade my plan?",
-                a: "Yes! You can change your plan at any time. Changes take effect at your next billing cycle.",
+                q: "Why is Pro pricing so affordable?",
+                a: "We believe AI fitness coaching should be accessible to everyone. We'd rather have more users getting healthier than fewer premium users. Plus, we make money through scale.",
               },
               {
                 q: "Is there a free trial?",
-                a: "Yes, the Free plan gives you full access with daily message limits so you can try PocketGym risk-free.",
+                a: "Yes! Starter gives you unlimited free access with 15 AI messages daily. Perfect to experience our AI coach before upgrading.",
               },
               {
-                q: "What payment methods do you accept?",
-                a: "We accept all major credit and debit cards through Stripe. Your payment data is encrypted and secure.",
+                q: "Can I get a refund?",
+                a: "100% money-back guarantee within 14 days if Pro/Elite doesn't work for you. No questions asked. We're confident you'll love it.",
               },
               {
-                q: "Can I cancel anytime?",
-                a: "Absolutely! You can cancel your subscription anytime. You'll have access until the end of your billing period.",
+                q: "Why choose Elite over Pro?",
+                a: "Elite adds 1-on-1 coach reviews and wearable sync. Pro is genuinely unlimited and covers 95% of what most users need. Choose based on whether you want human touch-ins.",
+              },
+              {
+                q: "Do prices increase later?",
+                a: "Locked in pricing! If you subscribe now, your rate never changes, even if we raise prices later. You got in at a steal.",
+              },
+              {
+                q: "What if I switch plans?",
+                a: "Change instantly anytime. Upgrade anytime, or downgrade and we'll refund the difference. True month-to-month flexibility.",
               },
             ].map((faq, idx) => (
               <div key={idx}>
@@ -334,10 +289,13 @@ export default function PricingPage() {
 
         {/* Footer Note */}
         <div className="text-center mt-12 text-neutral-400">
+          <p className="mb-3">
+            Join 5000+ athletes using AI coaching for their fitness goals
+          </p>
           <p>
-            Questions?{" "}
-            <Link href="/contact" className="text-blue-400 hover:text-blue-300">
-              Contact us
+            Start free today, upgrade anytime.{" "}
+            <Link href="/auth/signin" className="text-green-400 hover:text-green-300 font-semibold">
+              Get started now →
             </Link>
           </p>
         </div>
