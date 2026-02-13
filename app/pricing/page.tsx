@@ -12,15 +12,15 @@ const SUBSCRIPTION_PLANS = [
   {
     id: "FREE",
     name: "Starter",
-    description: "Test drive AI coaching",
+    description: "AI coaching essentials",
     monthlyPrice: 0,
     yearlyPrice: 0,
     features: [
-      "15 AI chat messages/day",
-      "Basic workout plans",
+      "5 AI chat messages per day",
+      "Preset workout programs",
       "Weight tracking",
-      "Mobile app access",
-      "Community support",
+      "Profile setup & fitness goals",
+      "Community access",
     ],
     icon: Zap,
     popular: false,
@@ -34,11 +34,11 @@ const SUBSCRIPTION_PLANS = [
     monthlyPrice: 4.99,
     yearlyPrice: 39.99,
     features: [
-      "Unlimited AI chat 🤖",
-      "Weekly plan adjustments",
-      "Real-time macro tracking",
-      "Performance analytics",
-      "Meal suggestions",
+      "Unlimited AI messages 🤖",
+      "AI gym coach + nutritionist",
+      "Preset & custom workouts",
+      "Weight tracking & progress charts",
+      "Workout history & stats",
       "Priority support",
     ],
     icon: Sparkles,
@@ -49,16 +49,16 @@ const SUBSCRIPTION_PLANS = [
   {
     id: "PREMIUM",
     name: "Elite",
-    description: "AI + expert guidance",
+    description: "Premium AI guidance",
     monthlyPrice: 12.99,
     yearlyPrice: 99.99,
     features: [
       "Everything in Pro",
-      "Advanced AI models",
-      "1-on-1 coach reviews (2x/month)",
-      "Body composition tracking",
-      "Wearable sync support",
-      "Supplement recommendations",
+      "Advanced analytics dashboard",
+      "Detailed progress insights",
+      "Monthly AI performance reviews",
+      "Priority AI response queue",
+      "Email support",
     ],
     icon: Crown,
     popular: false,
@@ -97,10 +97,10 @@ export default function PricingPage() {
             </p>
           </div>
           <h1 className="text-5xl font-black mb-4">
-            AI Coaching That Fits Your Budget
+            AI Coaching That Works
           </h1>
           <p className="text-xl text-neutral-400 mb-8">
-            Premium fitness AI for less than your morning coffee. Join 5000+ athletes.
+            Your personal AI gym coach and nutritionist. Start free, upgrade to unlimited.
           </p>
 
           {/* Billing Toggle */}
@@ -241,10 +241,10 @@ export default function PricingPage() {
         {/* Guarantee Section */}
         <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/30 rounded-2xl p-8 mb-12 fade-in text-center">
           <p className="text-white text-lg font-bold mb-2">
-            ✓ 14-Day Money-Back Guarantee
+            ✓ No Credit Card Required to Start
           </p>
           <p className="text-neutral-300">
-            Not seeing results? Get a full refund. We're that confident in our AI coach.
+            Try Starter free forever. Upgrade anytime when you're ready for unlimited AI coaching.
           </p>
         </div>
         <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-12 fade-in">
@@ -255,28 +255,28 @@ export default function PricingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                q: "Why is Pro pricing so affordable?",
-                a: "We believe AI fitness coaching should be accessible to everyone. We'd rather have more users getting healthier than fewer premium users. Plus, we make money through scale.",
+                q: "How many AI messages do I get on Starter?",
+                a: "5 messages per day. That's enough to plan a workout, get nutrition advice, and ask follow-up questions. Need more? Upgrade to Pro for unlimited.",
               },
               {
-                q: "Is there a free trial?",
-                a: "Yes! Starter gives you unlimited free access with 15 AI messages daily. Perfect to experience our AI coach before upgrading.",
+                q: "What can the AI coaches help with?",
+                a: "Our gym coach creates personalized workouts and training plans. Our nutritionist helps with meal planning, calorie advice, and dietary guidance. Both learn your goals over time.",
               },
               {
-                q: "Can I get a refund?",
-                a: "100% money-back guarantee within 14 days if Pro/Elite doesn't work for you. No questions asked. We're confident you'll love it.",
+                q: "Do I need a credit card to start?",
+                a: "Nope! Starter is completely free with no credit card required. Try it out, and upgrade to Pro anytime.",
               },
               {
-                q: "Why choose Elite over Pro?",
-                a: "Elite adds 1-on-1 coach reviews and wearable sync. Pro is genuinely unlimited and covers 95% of what most users need. Choose based on whether you want human touch-ins.",
+                q: "What's included in Pro?",
+                a: "Unlimited daily AI messages from both coaches, workout history tracking, weight progress charts, and priority support. Everything you need for serious training.",
               },
               {
-                q: "Do prices increase later?",
-                a: "Locked in pricing! If you subscribe now, your rate never changes, even if we raise prices later. You got in at a steal.",
+                q: "What makes Elite different?",
+                a: "Elite adds detailed analytics dashboards that show your training patterns and progress trends over time, plus advanced insights to optimize your fitness journey.",
               },
               {
-                q: "What if I switch plans?",
-                a: "Change instantly anytime. Upgrade anytime, or downgrade and we'll refund the difference. True month-to-month flexibility.",
+                q: "Can I cancel anytime?",
+                a: "Yes! No contract, no penalties. Cancel monthly anytime, or annual plans renew—no surprise charges.",
               },
             ].map((faq, idx) => (
               <div key={idx}>
@@ -290,10 +290,10 @@ export default function PricingPage() {
         {/* Footer Note */}
         <div className="text-center mt-12 text-neutral-400">
           <p className="mb-3">
-            Join 5000+ athletes using AI coaching for their fitness goals
+            AI-powered fitness coaching for the web. Try free, upgrade when ready.
           </p>
           <p>
-            Start free today, upgrade anytime.{" "}
+            Start free today with 5 daily AI messages.{" "}
             <Link href="/auth/signin" className="text-green-400 hover:text-green-300 font-semibold">
               Get started now →
             </Link>
