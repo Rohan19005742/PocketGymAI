@@ -36,10 +36,10 @@ model User {
   // Password reset
   resetToken    String?   @unique
   resetTokenExpiry DateTime?
-
-  // Subscription & Billing
-  subscription  Subscription?
-  usageTracking UsageTracking?
+  
+  // Progress tracking
+  workoutProgress WorkoutProgress[] @relation("WorkoutProgress")
+  weightProgress  WeightProgress[] @relation("WeightProgress")
 }
 
 model Account {
@@ -77,34 +77,32 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model Subscription {
-  id                    String   @id @default(cuid())
-  userId                String   @unique
-  user                  User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
-  plan                  String   @default("FREE")  // FREE, PRO, PREMIUM
-  status                String   @default("active") // active, canceled, past_due
-  
-  stripeCustomerId      String?  @unique
-  stripeSubscriptionId  String?  @unique
-  stripePriceId         String?
-  
-  currentPeriodStart    DateTime?
-  currentPeriodEnd      DateTime?
-  cancelAtPeriodEnd     Boolean  @default(false)
-  
-  createdAt             DateTime @default(now())
-  updatedAt             DateTime @updatedAt
-}
-
-model UsageTracking {
+model WorkoutProgress {
   id                String   @id @default(cuid())
-  userId            String   @unique
-  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId            String
+  user              User     @relation("WorkoutProgress", fields: [userId], references: [id], onDelete: Cascade)
   
-  messagesUsedToday Int      @default(0)
-  lastResetDate     DateTime @default(now())
+  workoutName       String
+  date              DateTime @default(now())
+  duration          Int      // in minutes
+  calories          Int?
+  notes             String?
   
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
+}
+
+model WeightProgress {
+  id                String   @id @default(cuid())
+  userId            String
+  user              User     @relation("WeightProgress", fields: [userId], references: [id], onDelete: Cascade)
+  
+  weight            Float
+  date              DateTime @default(now())
+  notes             String?
+  
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  @@index([userId, date])
 }

@@ -1,18 +1,6 @@
 import { compare } from "bcryptjs";
-import { promises as fs } from "fs";
-import path from "path";
 import { NextRequest, NextResponse } from "next/server";
-
-const DB_PATH = path.join(process.cwd(), "data", "users.json");
-
-async function getUsers() {
-  try {
-    const data = await fs.readFile(DB_PATH, "utf-8");
-    return JSON.parse(data);
-  } catch {
-    return [];
-  }
-}
+import { prisma } from "@/lib/prisma";
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,16 +14,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const users = await getUsers();
-    const user = users.find((u: any) => u.email === email);
+    // Find user in database
+    const user = await prisma.user.findUnique({
+      where: { email },
+    });
 
-    if (!user) {
+    if (!user || !user.password) {
       return NextResponse.json(
         { error: "User not found" },
         { status: 401 }
       );
     }
 
+    // Verify password
     const passwordMatch = await compare(password, user.password);
 
     if (!passwordMatch) {
@@ -50,9 +41,11 @@ export async function POST(request: NextRequest) {
         id: user.id,
         email: user.email,
         name: user.name,
-        avatar: user.avatar,
+        image: user.image,
         fitnessLevel: user.fitnessLevel,
         goal: user.goal,
+        completedWorkouts: user.completedWorkouts,
+        streakDays: user.streakDays,
       },
       { status: 200 }
     );

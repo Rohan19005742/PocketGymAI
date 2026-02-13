@@ -1,42 +1,11 @@
 import { hash } from "bcryptjs";
-import { promises as fs } from "fs";
-import path from "path";
 import { NextRequest, NextResponse } from "next/server";
-
-const DB_PATH = path.join(process.cwd(), "data", "users.json");
-
-async function ensureDbExists() {
-  try {
-    await fs.mkdir(path.dirname(DB_PATH), { recursive: true });
-    try {
-      await fs.access(DB_PATH);
-    } catch {
-      await fs.writeFile(DB_PATH, JSON.stringify([]));
-    }
-  } catch (error) {
-    console.error("DB error:", error);
-  }
-}
-
-async function getUsers() {
-  await ensureDbExists();
-  try {
-    const data = await fs.readFile(DB_PATH, "utf-8");
-    return JSON.parse(data);
-  } catch {
-    return [];
-  }
-}
-
-async function saveUsers(users: any[]) {
-  await ensureDbExists();
-  await fs.writeFile(DB_PATH, JSON.stringify(users, null, 2));
-}
+import { prisma } from "@/lib/prisma";
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, password } = body;
+    const { name, email, password, fitnessLevel, goal } = body;
 
     if (!name || !email || !password) {
       return NextResponse.json(
@@ -45,10 +14,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const users = await getUsers();
+    // Check if user already exists
+    const existingUser = await prisma.user.findUnique({
+      where: { email },
+    });
 
-    // Check if user exists
-    if (users.find((u: any) => u.email === email)) {
+    if (existingUser) {
       return NextResponse.json(
         { error: "User already exists" },
         { status: 400 }
@@ -58,31 +29,32 @@ export async function POST(request: NextRequest) {
     // Hash password
     const hashedPassword = await hash(password, 10);
 
-    // Create new user
-    const newUser = {
-      id: Date.now().toString(),
-      name,
-      email,
-      password: hashedPassword,
-      avatar: "👤",
-      fitnessLevel: "Beginner",
-      goal: "Build Muscle",
-      completedWorkouts: 0,
-      streakDays: 0,
-      createdAt: new Date().toISOString(),
-    };
-
-    users.push(newUser);
-    await saveUsers(users);
+    // Create new user in database
+    const newUser = await prisma.user.create({
+      data: {
+        name,
+        email,
+        password: hashedPassword,
+        fitnessLevel: fitnessLevel || "Beginner",
+        goal: goal || "Build Muscle",
+      },
+    });
 
     return NextResponse.json(
-      { message: "User created successfully", user: { id: newUser.id, email, name } },
+      { 
+        message: "User created successfully", 
+        user: { 
+          id: newUser.id, 
+          email: newUser.email, 
+          name: newUser.name 
+        } 
+      },
       { status: 201 }
     );
   } catch (error) {
     console.error("Signup error:", error);
     return NextResponse.json(
-      { error: "Signup failed" },
+      { error: "An error occurred during signup" },
       { status: 500 }
     );
   }

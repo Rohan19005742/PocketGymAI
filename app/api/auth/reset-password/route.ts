@@ -1,22 +1,6 @@
 import { hash } from "bcryptjs";
-import { promises as fs } from "fs";
-import path from "path";
 import { NextRequest, NextResponse } from "next/server";
-
-const DB_PATH = path.join(process.cwd(), "data", "users.json");
-
-async function getUsers() {
-  try {
-    const data = await fs.readFile(DB_PATH, "utf-8");
-    return JSON.parse(data);
-  } catch {
-    return [];
-  }
-}
-
-async function saveUsers(users: any[]) {
-  await fs.writeFile(DB_PATH, JSON.stringify(users, null, 2));
-}
+import { prisma } from "@/lib/prisma";
 
 export async function POST(request: NextRequest) {
   try {
@@ -37,8 +21,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const users = await getUsers();
-    const user = users.find((u: any) => u.email === email);
+    // Find user and validate reset token
+    const user = await prisma.user.findUnique({
+      where: { email },
+    });
 
     if (!user) {
       return NextResponse.json(
@@ -47,16 +33,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate reset token
-    if (user.resetToken !== token) {
+    // Check if token matches and is not expired
+    if (!user.resetToken || user.resetToken !== token) {
       return NextResponse.json(
         { error: "Invalid reset token" },
         { status: 400 }
       );
     }
 
-    // Check if token is expired
-    if (!user.resetTokenExpiry || user.resetTokenExpiry < Date.now()) {
+    if (!user.resetTokenExpiry || user.resetTokenExpiry < new Date()) {
       return NextResponse.json(
         { error: "Reset token has expired" },
         { status: 400 }
@@ -65,11 +50,15 @@ export async function POST(request: NextRequest) {
 
     // Hash new password and update user
     const hashedPassword = await hash(password, 10);
-    user.password = hashedPassword;
-    user.resetToken = undefined;
-    user.resetTokenExpiry = undefined;
 
-    await saveUsers(users);
+    await prisma.user.update({
+      where: { email },
+      data: {
+        password: hashedPassword,
+        resetToken: null,
+        resetTokenExpiry: null,
+      },
+    });
 
     return NextResponse.json(
       { message: "Password reset successfully" },
