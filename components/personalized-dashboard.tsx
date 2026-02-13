@@ -86,16 +86,16 @@ export function PersonalizedDashboard() {
                 color: "from-blue-500 to-purple-600",
               },
               {
-                title: "Browse Workouts",
-                description: "Explore our professional programs",
-                href: "/workouts",
-                color: "from-purple-500 to-pink-600",
+                title: "AI Nutritionist",
+                description: "Get meal plans and nutrition advice",
+                href: "/nutritionist",
+                color: "from-green-500 to-emerald-600",
               },
               {
                 title: "View Progress",
                 description: "Track your fitness journey",
                 href: "/progress",
-                color: "from-green-500 to-emerald-600",
+                color: "from-orange-500 to-pink-600",
               },
             ].map((action, index) => (
               <Link href={action.href} key={index}>

@@ -5,33 +5,33 @@ import { Brain, Zap, TrendingUp, Users, Smartphone, Award } from "lucide-react";
 const features = [
   {
     icon: Brain,
-    title: "AI Coach",
-    description: "Get personalized workout plans tailored to your fitness level and goals",
+    title: "AI Gym Coach",
+    description: "Get personalized workout recommendations and form advice from your personal AI trainer",
   },
   {
-    icon: Zap,
-    title: "Real-time Feedback",
-    description: "Instant form corrections and performance insights with every rep",
+    icon: Users,
+    title: "AI Nutritionist",
+    description: "Receive meal plans, nutrition advice, and macro guidance tailored to your goals",
   },
   {
     icon: TrendingUp,
     title: "Progress Tracking",
-    description: "Monitor your improvements with detailed analytics and smart insights",
+    description: "Monitor your weight, body composition, and fitness progress with beautiful charts",
   },
   {
-    icon: Users,
-    title: "Community",
-    description: "Connect with other fitness enthusiasts and share your journey",
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile Ready",
-    description: "Access your training anywhere, anytime with our responsive design",
+    icon: Zap,
+    title: "Instant Personalization",
+    description: "AI adapts to your feedback and adjusts recommendations based on your performance",
   },
   {
     icon: Award,
-    title: "Certified Programs",
-    description: "Workouts designed by certified fitness professionals",
+    title: "Expert Knowledge",
+    description: "Benefit from advanced AI trained on fitness science and nutrition best practices",
+  },
+  {
+    icon: Smartphone,
+    title: "Access Anywhere",
+    description: "Train and get nutrition advice anytime with our fully responsive web platform",
   },
 ];
 
