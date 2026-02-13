@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Loader2, TrendingUp, Plus, Calendar } from "lucide-react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ComposedChart, Legend } from "recharts";
 import { Button } from "@/components/ui/button";
 
 interface WeightEntry {
@@ -57,23 +57,18 @@ export default function ProgressPage() {
     setBodyFat("");
   };
 
-  // Calculate stats
   const currentWeight = weightHistory[weightHistory.length - 1]?.weight || 0;
   const previousWeight = weightHistory[0]?.weight || 0;
   const weightChangeValue = currentWeight - previousWeight;
-  const weightChange = weightChangeValue.toFixed(1);
-  const bmi = (currentWeight / (1.75 * 1.75)).toFixed(1);
-  
-  // Body composition calculations
   const currentBodyFat = weightHistory[weightHistory.length - 1]?.bodyFatPercentage || 0;
   const currentFatMass = (currentWeight * currentBodyFat) / 100;
   const currentMuscleMass = currentWeight - currentFatMass;
 
   return (
-    <div className="min-h-screen pt-24 pb-16">
+    <div className="min-h-screen pt-24 pb-16 bg-neutral-950">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-12 fade-in">
+        <div className="mb-12">
           <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/30 rounded-full mb-4">
             <TrendingUp className="w-4 h-4 text-blue-400" />
             <span className="text-xs sm:text-sm font-semibold text-blue-400">
@@ -81,19 +76,19 @@ export default function ProgressPage() {
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-black mb-2">
-            Weight Tracking
+            Track Your Progress
           </h1>
           <p className="text-neutral-400">
-            Monitor your weight progress and body metrics.
+            Monitor your weight and body composition to stay motivated.
           </p>
         </div>
 
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {/* Current Weight */}
-          <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 fade-in hover:border-blue-500/50 transition-all">
+          <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border border-blue-500/30 rounded-2xl p-6 hover:border-blue-500/50 transition-all">
             <h3 className="text-sm font-semibold text-neutral-400 mb-2">Current Weight</h3>
-            <p className="text-4xl font-black text-white mb-1">
+            <p className="text-4xl font-black text-blue-400 mb-1">
               {currentWeight} <span className="text-lg text-neutral-400">kg</span>
             </p>
             <p className={`text-sm font-semibold ${weightChangeValue < 0 ? "text-green-400" : "text-red-400"}`}>
@@ -101,9 +96,10 @@ export default function ProgressPage() {
             </p>
           </div>
 
-          <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 fade-in hover:border-purple-500/50 transition-all" style={{ animationDelay: "0.1s" }}>
+          {/* Weekly Change */}
+          <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/10 border border-purple-500/30 rounded-2xl p-6 hover:border-purple-500/50 transition-all">
             <h3 className="text-sm font-semibold text-neutral-400 mb-2">Weekly Change</h3>
-            <p className="text-4xl font-black text-white mb-1">
+            <p className="text-4xl font-black text-purple-400 mb-1">
               <span className={weightChangeValue < 0 ? "text-green-400" : "text-red-400"}>
                 {weightChangeValue < 0 ? "-" : "+"}{Math.abs(weightChangeValue).toFixed(1)}
               </span>
@@ -115,13 +111,13 @@ export default function ProgressPage() {
           </div>
 
           {/* Body Fat */}
-          <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 fade-in hover:border-green-500/50 transition-all" style={{ animationDelay: "0.2s" }}>
+          <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-500/30 rounded-2xl p-6 hover:border-orange-500/50 transition-all">
             <h3 className="text-sm font-semibold text-neutral-400 mb-2">Body Fat %</h3>
-            <p className="text-4xl font-black text-white mb-1">
+            <p className="text-4xl font-black text-orange-400 mb-1">
               {currentBodyFat > 0 ? currentBodyFat.toFixed(1) : "--"}
             </p>
             <p className="text-sm text-neutral-400">
-              {currentBodyFat > 0 ? (currentBodyFat < 15 ? "Very lean" : currentBodyFat < 20 ? "Athletic" : currentBodyFat < 25 ? "Fit" : "Higher") : "Not logged"}
+              {currentBodyFat > 0 ? (currentBodyFat < 15 ? "💪 Athletic" : currentBodyFat < 20 ? "👍 Fit" : currentBodyFat < 25 ? "⚖️ Average" : "📈 Higher") : "Not logged"}
             </p>
           </div>
         </div>
@@ -129,8 +125,7 @@ export default function ProgressPage() {
         {/* Body Composition */}
         {currentBodyFat > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            {/* Fat Mass */}
-            <div className="bg-gradient-to-br from-red-500/10 to-orange-500/10 border border-red-500/30 rounded-2xl p-6 fade-in hover:border-red-500/50 transition-all">
+            <div className="bg-gradient-to-br from-red-500/10 to-orange-500/10 border border-red-500/30 rounded-2xl p-6 hover:border-red-500/50 transition-all">
               <h3 className="text-sm font-semibold text-neutral-400 mb-2">Fat Mass</h3>
               <p className="text-4xl font-black text-red-400 mb-1">
                 {currentFatMass.toFixed(1)} <span className="text-lg text-neutral-400">kg</span>
@@ -140,10 +135,9 @@ export default function ProgressPage() {
               </p>
             </div>
 
-            {/* Muscle Mass */}
-            <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/30 rounded-2xl p-6 fade-in hover:border-blue-500/50 transition-all">
+            <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/30 rounded-2xl p-6 hover:border-green-500/50 transition-all">
               <h3 className="text-sm font-semibold text-neutral-400 mb-2">Muscle Mass</h3>
-              <p className="text-4xl font-black text-blue-400 mb-1">
+              <p className="text-4xl font-black text-green-400 mb-1">
                 {currentMuscleMass.toFixed(1)} <span className="text-lg text-neutral-400">kg</span>
               </p>
               <p className="text-sm text-neutral-400">
@@ -154,10 +148,10 @@ export default function ProgressPage() {
         )}
 
         {/* Add Weight Form */}
-        <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 mb-12 fade-in" style={{ animationDelay: "0.3s" }}>
+        <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 mb-12">
           <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
             <Calendar className="w-5 h-5 text-blue-400" />
-            Log Progress
+            Log Your Progress
           </h2>
           <form onSubmit={handleAddWeight} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -183,7 +177,7 @@ export default function ProgressPage() {
             </div>
             <Button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold px-6 py-3 rounded-lg flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20"
+              className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold px-6 py-3 rounded-lg flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20"
             >
               <Plus className="w-5 h-5" />
               Log Entry
@@ -192,33 +186,64 @@ export default function ProgressPage() {
         </div>
 
         {/* Weight History Chart */}
-        <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 fade-in" style={{ animationDelay: "0.4s" }}>
-          <h2 className="text-xl font-bold text-white mb-6">Weight History</h2>
-          <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={weightHistory}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-              <XAxis dataKey="date" stroke="#666" />
-              <YAxis stroke="#666" />
+        <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 mb-12">
+          <h2 className="text-xl font-bold text-white mb-6">Progress Chart</h2>
+          <ResponsiveContainer width="100%" height={350}>
+            <ComposedChart data={weightHistory} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+              <defs>
+                <linearGradient id="weightGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#3B82F6" stopOpacity={0.8} />
+                  <stop offset="95%" stopColor="#3B82F6" stopOpacity={0.1} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="#333" vertical={false} />
+              <XAxis dataKey="date" stroke="#666" style={{ fontSize: "12px" }} />
+              <YAxis yAxisId="left" stroke="#666" style={{ fontSize: "12px" }} />
+              <YAxis yAxisId="right" orientation="right" stroke="#666" style={{ fontSize: "12px" }} />
               <Tooltip
-                contentStyle={{ backgroundColor: "#1a1a1a", border: "1px solid #333", borderRadius: "8px" }}
-                labelStyle={{ color: "#fff" }}
+                contentStyle={{
+                  backgroundColor: "#1a1a1a",
+                  border: "1px solid #444",
+                  borderRadius: "8px",
+                  padding: "12px",
+                }}
+                cursor={{ strokeDasharray: "3 3" }}
+                formatter={(value: any) => {
+                  if (typeof value === "number") {
+                    return value.toFixed(1);
+                  }
+                  return value;
+                }}
               />
+              <Legend wrapperStyle={{ paddingTop: "20px" }} />
               <Line
-                type="monotone"
+                yAxisId="left"
+                type="natural"
                 dataKey="weight"
                 stroke="#3B82F6"
                 strokeWidth={3}
-                dot={{ fill: "#3B82F6", r: 5 }}
-                activeDot={{ r: 7 }}
+                dot={{ fill: "#3B82F6", r: 4 }}
+                activeDot={{ r: 6 }}
+                name="Weight (kg)"
               />
-            </LineChart>
+              <Line
+                yAxisId="right"
+                type="natural"
+                dataKey="bodyFatPercentage"
+                stroke="#EF4444"
+                strokeWidth={3}
+                dot={{ fill: "#EF4444", r: 4 }}
+                activeDot={{ r: 6 }}
+                name="Body Fat %"
+              />
+            </ComposedChart>
           </ResponsiveContainer>
         </div>
 
-        {/* Weight List */}
-        <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 mt-8 fade-in" style={{ animationDelay: "0.5s" }}>
+        {/* Recent Entries */}
+        <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8">
           <h2 className="text-xl font-bold text-white mb-6">Recent Entries</h2>
-          <div className="space-y-2">
+          <div className="space-y-3">
             {weightHistory
               .slice()
               .reverse()

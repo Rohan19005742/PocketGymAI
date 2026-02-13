@@ -3,19 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
-import { Dumbbell, User, BarChart, Settings, MessageSquare, CreditCard, Apple, Home, Bell } from "lucide-react";
+import { User, BarChart, MessageSquare, Apple } from "lucide-react";
 
 const panelLinks = [
-  {
-    href: "/dashboard",
-    label: "Dashboard",
-    icon: <Home className="w-5 h-5" />,
-  },
-  {
-    href: "/notifications",
-    label: "Notifications",
-    icon: <Bell className="w-5 h-5" />,
-  },
   {
     href: "/chat",
     label: "AI Coach",
@@ -30,16 +20,6 @@ const panelLinks = [
     href: "/progress",
     label: "Progress",
     icon: <BarChart className="w-5 h-5" />,
-  },
-  {
-    href: "/pricing",
-    label: "Pricing",
-    icon: <CreditCard className="w-5 h-5" />,
-  },
-  {
-    href: "/settings",
-    label: "Settings",
-    icon: <Settings className="w-5 h-5" />,
   },
   {
     href: "/profile",
