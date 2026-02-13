@@ -22,5 +22,56 @@
     "completedWorkouts": 0,
     "streakDays": 0,
     "createdAt": "2026-02-12T18:48:03.243Z"
+  },
+  {
+    "id": "1770923268727",
+    "name": "vvc",
+    "email": "vvsv@gmail.com",
+    "password": "$2b$10$PoPs/8wI9Zu3J7ypEyi4s.keJ4fy4VyD1mbCVyduLZ/loWIjsNJ3i",
+    "avatar": "👤",
+    "fitnessLevel": "Beginner",
+    "goal": "Build Muscle",
+    "completedWorkouts": 0,
+    "streakDays": 0,
+    "createdAt": "2026-02-12T19:07:48.727Z"
+  },
+  {
+    "id": "1770957637736",
+    "name": "Test",
+    "email": "test2@example.com",
+    "password": "$2b$10$5OJCFqEpHqc17x1LGsF6RONn8rx9lAmZJ/Pfd94llH5KbR8GV94aK",
+    "avatar": "👤",
+    "fitnessLevel": "Beginner",
+    "goal": "Build Muscle",
+    "completedWorkouts": 0,
+    "streakDays": 0,
+    "createdAt": "2026-02-13T04:40:37.736Z"
+  },
+  {
+    "id": "1770957783832",
+    "name": "test",
+    "email": "test4@gmail.com",
+    "password": "$2b$10$IoAFfHyLPfiwt8AYnUsNAuBpDisXnlq62.Zb.LNXnO9/WVVyavl16",
+    "avatar": "👤",
+    "fitnessLevel": "Beginner",
+    "goal": "Build Muscle",
+    "completedWorkouts": 0,
+    "streakDays": 0,
+    "createdAt": "2026-02-13T04:43:03.832Z"
+  },
+  {
+    "id": "1770958201369",
+    "name": "test",
+    "email": "r@gmail.com",
+    "password": "$2b$10$arREreONXLWOW.iR5xl5y.S7dnuni.zrZ/9vjMfMsBaxVM71zS.j6",
+    "avatar": "👤",
+    "fitnessLevel": "Beginner",
+    "goal": "Build Muscle",
+    "completedWorkouts": 0,
+    "streakDays": 0,
+    "createdAt": "2026-02-13T04:50:01.369Z",
+    "age": "25",
+    "weight": "77",
+    "height": "180"
   }
 ]

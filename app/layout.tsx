@@ -5,6 +5,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { AnimatedBackground } from "@/components/animated-background";
 import { AuthProvider } from "@/components/auth-provider";
+import { SidePanel } from "@/components/side-panel";
+import { AppMain } from "@/components/app-main";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,9 +36,10 @@ export default function RootLayout({
         <AuthProvider>
           <AnimatedBackground />
           <Navbar />
-          <main className="min-h-screen relative">
+          <SidePanel />
+          <AppMain>
             {children}
-          </main>
+          </AppMain>
           <Footer />
         </AuthProvider>
       </body>

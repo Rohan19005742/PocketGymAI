@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, LogOut, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { SubscriptionPanel } from "@/components/subscription-panel";
 
 export default function SettingsPage() {
   const { data: session, status } = useSession();
@@ -226,6 +227,7 @@ export default function SettingsPage() {
           </div>
         </div>
       </div>
+      <SubscriptionPanel userSubscription={session?.user?.subscription} />
     </div>
   );
 }

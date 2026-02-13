@@ -10,7 +10,7 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-neutral-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
@@ -22,45 +22,7 @@ export function Navbar() {
             </span>
           </Link>
 
-          {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
-            {session && (
-              <>
-                <Link
-                  href="/chat"
-                  className="text-neutral-300 hover:text-white transition-colors duration-200 font-medium"
-                >
-                  AI Coach
-                </Link>
-                <Link
-                  href="/workouts"
-                  className="text-neutral-300 hover:text-white transition-colors duration-200 font-medium"
-                >
-                  Workouts
-                </Link>
-                <Link
-                  href="/progress"
-                  className="text-neutral-300 hover:text-white transition-colors duration-200 font-medium"
-                >
-                  Progress
-                </Link>
-                <Link
-                  href="/settings"
-                  className="text-neutral-300 hover:text-white transition-colors duration-200 font-medium"
-                >
-                  Settings
-                </Link>
-                <Link
-                  href="/profile"
-                  className="text-neutral-300 hover:text-white transition-colors duration-200 font-medium"
-                >
-                  Profile
-                </Link>
-              </>
-            )}
-          </div>
-
-          {/* CTA Buttons */}
+          {/* Right side */}
           <div className="flex items-center space-x-4">
             {session ? (
               <>

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "free",
+    "name": "Free",
+    "price": 0,
+    "features": [
+      "Basic workouts",
+      "Progress tracking",
+      "AI Coach (limited)"
+    ]
+  },
+  {
+    "id": "pro",
+    "name": "Pro",
+    "price": 4.99,
+    "features": [
+      "All Free features",
+      "Advanced workouts",
+      "AI Coach (unlimited)",
+      "Personalized plans"
+    ]
+  },
+  {
+    "id": "elite",
+    "name": "Elite",
+    "price": 9.99,
+    "features": [
+      "All Pro features",
+      "1-on-1 coaching",
+      "AI Nutritionist",
+      "Priority support",
+      "Exclusive content"
+    ]
+  },
+  {
+    "id": "ultimate",
+    "name": "Ultimate",
+    "price": 14.99,
+    "features": [
+      "All Elite features",
+      "Custom nutrition plans"
+    ]
+  }
+]
