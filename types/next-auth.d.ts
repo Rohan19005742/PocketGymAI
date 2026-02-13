@@ -7,6 +7,7 @@ declare module "next-auth" {
       avatar?: string;
       fitnessLevel?: string;
       goal?: string;
+      onboardingComplete?: boolean;
       completedWorkouts?: number;
       streakDays?: number;
       subscription?: {
@@ -23,6 +24,7 @@ declare module "next-auth" {
     avatar?: string;
     fitnessLevel?: string;
     goal?: string;
+    onboardingComplete?: boolean;
     completedWorkouts?: number;
     streakDays?: number;
     subscription?: {

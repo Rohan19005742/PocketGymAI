@@ -26,6 +26,14 @@ model User {
   age           Int?
   weight        Float?
   height        Float?
+  trainingExperience String? // "beginner", "intermediate", "advanced"
+  
+  // Onboarding
+  onboardingComplete Boolean @default(false)
+  preferredTrainingDays Int? // 3-6 days per week
+  exercisePreferences String? // JSON: ["strength", "cardio", "flexibility"]
+  dietaryPreferences String? // JSON: ["vegan", "keto", "balanced"]
+  availableEquipment String? // "home", "gym", "both"
   
   // Tracking
   completedWorkouts Int   @default(0)

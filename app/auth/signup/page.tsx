@@ -69,7 +69,7 @@ export default function SignUpPage() {
       });
 
       if (result?.ok) {
-        window.location.href = "/progress";
+        window.location.href = "/onboarding";
       } else {
         setError(result?.error || "Sign in failed after signup");
       }

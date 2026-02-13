@@ -40,6 +40,7 @@ const handler = NextAuth({
             image: user.avatar,
             fitnessLevel: user.fitnessLevel,
             goal: user.goal,
+            onboardingComplete: user.onboardingComplete,
           };
         } catch (error) {
           throw new Error(
@@ -59,6 +60,7 @@ const handler = NextAuth({
         token.id = user.id;
         token.fitnessLevel = user.fitnessLevel;
         token.goal = user.goal;
+        token.onboardingComplete = user.onboardingComplete;
       }
       return token;
     },
@@ -67,6 +69,7 @@ const handler = NextAuth({
         session.user.id = token.id as string;
         session.user.fitnessLevel = token.fitnessLevel as string;
         session.user.goal = token.goal as string;
+        session.user.onboardingComplete = token.onboardingComplete as boolean;
       }
       return session;
     },

@@ -44,6 +44,7 @@ export async function POST(request: NextRequest) {
         image: user.image,
         fitnessLevel: user.fitnessLevel,
         goal: user.goal,
+        onboardingComplete: user.onboardingComplete,
         completedWorkouts: user.completedWorkouts,
         streakDays: user.streakDays,
       },
