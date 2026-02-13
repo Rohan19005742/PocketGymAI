@@ -9,6 +9,12 @@ declare module "next-auth" {
       goal?: string;
       completedWorkouts?: number;
       streakDays?: number;
+      subscription?: {
+        plan: string;
+        status: string;
+        currentPeriodEnd?: Date;
+        cancelAtPeriodEnd?: boolean;
+      };
     };
   }
 
@@ -19,5 +25,11 @@ declare module "next-auth" {
     goal?: string;
     completedWorkouts?: number;
     streakDays?: number;
+    subscription?: {
+      plan: string;
+      status: string;
+      currentPeriodEnd?: Date;
+      cancelAtPeriodEnd?: boolean;
+    };
   }
 }
