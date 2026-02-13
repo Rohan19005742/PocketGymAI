@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
         name,
         email,
         password: hashedPassword,
-        fitnessLevel: fitnessLevel || "Beginner",
+        fitnessLevel: fitnessLevel || "0-1",
         goal: goal || "Build Muscle",
       },
     });

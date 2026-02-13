@@ -13,12 +13,12 @@ export default function OnboardingPage() {
   const [step, setStep] = useState(1);
 
   // Form state
-  const [fitnessLevel, setFitnessLevel] = useState("Beginner");
+  const [fitnessLevel, setFitnessLevel] = useState("0-1");
   const [goal, setGoal] = useState("Build Muscle");
   const [age, setAge] = useState("");
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
-  const [trainingExperience, setTrainingExperience] = useState("beginner");
+  const [trainingExperience, setTrainingExperience] = useState("0-1");
   const [trainingDays, setTrainingDays] = useState("4");
   const [exercisePreferences, setExercisePreferences] = useState<string[]>([
     "strength",
@@ -138,20 +138,20 @@ export default function OnboardingPage() {
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium mb-3">
-                    Current Fitness Level
+                    Years of Training Experience
                   </label>
                   <div className="grid grid-cols-3 gap-3">
-                    {["Beginner", "Intermediate", "Advanced"].map((level) => (
+                    {[{ id: "0-1", label: "0-1 year" }, { id: "1-3", label: "1-3 years" }, { id: "3+", label: "3+ years" }].map(({ id, label }) => (
                       <button
-                        key={level}
-                        onClick={() => setFitnessLevel(level)}
+                        key={id}
+                        onClick={() => setFitnessLevel(id)}
                         className={`p-3 rounded-lg font-semibold transition-all ${
-                          fitnessLevel === level
+                          fitnessLevel === id
                             ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-purple-500/30"
                             : "bg-neutral-800 text-neutral-300 hover:bg-neutral-700"
                         }`}
                       >
-                        {level}
+                        {label}
                       </button>
                     ))}
                   </div>
@@ -267,8 +267,8 @@ export default function OnboardingPage() {
                 <label className="block text-sm font-medium mb-3">
                   How many days per week can you train?
                 </label>
-                <div className="grid grid-cols-4 gap-2">
-                  {["3", "4", "5", "6"].map((day) => (
+                <div className="grid grid-cols-5 gap-2">
+                  {["2", "3", "4", "5", "6"].map((day) => (
                     <button
                       key={day}
                       onClick={() => setTrainingDays(day)}
