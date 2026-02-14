@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Hero } from "@/components/hero";
 import { Features } from "@/components/features";
+import { Stats } from "@/components/stats";
+import { Testimonials } from "@/components/testimonials";
 import { CTA } from "@/components/cta";
 import { PersonalizedDashboard } from "@/components/personalized-dashboard";
 
@@ -26,7 +28,9 @@ export function HomeContent() {
   return (
     <>
       <Hero />
+      <Stats />
       <Features />
+      <Testimonials />
       <CTA />
     </>
   );
