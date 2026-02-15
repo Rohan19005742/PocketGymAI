@@ -61,11 +61,13 @@ export default function ChatPage() {
     e.preventDefault();
     if (!input.trim()) return;
 
+    const userInput = input;
+
     // Add user message
     const userMessage: Message = {
       id: Date.now().toString(),
       type: "user",
-      content: input,
+      content: userInput,
       timestamp: new Date(),
     };
 
@@ -73,17 +75,53 @@ export default function ChatPage() {
     setInput("");
     setIsLoading(true);
 
-    // Simulate AI response
-    setTimeout(() => {
+    try {
+      // Call the RAG-powered AI Coach API
+      const response = await fetch("/api/chat/ai-coach", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: userInput,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(
+          errorData.message ||
+            "Failed to get response from AI Coach"
+        );
+      }
+
+      const data = await response.json();
       const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: "ai",
-        content: `That's awesome! I'd love to help you with "${input}". Here's what I recommend:\n\n1. **Warm-up** (5 min) - Light cardio and dynamic stretches\n2. **Main Workout** (30 min) - Targeted exercises based on your goals\n3. **Cool-down** (5 min) - Static stretching and breathing exercises\n\nWould you like me to create a detailed workout plan? 💪`,
+        content: data.message,
+        timestamp: new Date(data.timestamp),
+      };
+
+      setMessages((prev) => [...prev, aiMessage]);
+    } catch (error) {
+      console.error("Chat error:", error);
+
+      // Show error message to user
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        type: "ai",
+        content:
+          error instanceof Error
+            ? error.message
+            : "I encountered an issue processing your request. Please try again.",
         timestamp: new Date(),
       };
-      setMessages((prev) => [...prev, aiMessage]);
+
+      setMessages((prev) => [...prev, errorMessage]);
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   return (

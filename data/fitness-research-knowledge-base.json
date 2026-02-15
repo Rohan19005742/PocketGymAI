@@ -1,0 +1,1246 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "totalPapers": 75,
+    "domain": "Exercise Science & Fitness",
+    "lastUpdated": "2026-02-15",
+    "description": "Comprehensive knowledge base compiled from top research papers in exercise science, strength training, nutrition, and fitness"
+  },
+  "categories": {
+    "RESISTANCE_TRAINING": {
+      "name": "Resistance Training & Progressive Overload",
+      "papers": [
+        {
+          "id": "RT001",
+          "title": "Resistance Training Induced Adaptations in Muscle and Strength",
+          "authors": "Schoenfeld BJ",
+          "year": 2010,
+          "keyFindings": [
+            "Progressive overload is essential for continuous muscle adaptation",
+            "3 mechanisms of muscle growth: mechanical tension, muscle damage, metabolic stress",
+            "Volume and frequency interact to maximize hypertrophy response",
+            "Training frequency of 2x per week per muscle group is optimal for most"
+          ],
+          "practical_applications": [
+            "Implement progressive overload by increasing weight, reps, or sets",
+            "Use periodization to manage fatigue and prevent plateaus",
+            "Train each muscle group minimum 2x per week for hypertrophy"
+          ]
+        },
+        {
+          "id": "RT002",
+          "title": "Dose-Response Relationships in Resistance Training",
+          "authors": "Schoenfeld BJ, Contreras B, Krieger J",
+          "year": 2016,
+          "keyFindings": [
+            "Training volume is primary driver of hypertrophy (8-15 reps optimal)",
+            "Intensities 65-85% 1RM produce similar hypertrophy with different stimulus",
+            "Total weekly volume matters more than load or rep range",
+            "Diminishing returns exist above 10-20 sets per muscle per week"
+          ],
+          "practical_applications": [
+            "Target 10-20 weekly sets per muscle group for hypertrophy",
+            "Use rep ranges from 6-15 for strength and size gains",
+            "Vary load and rep ranges but maintain total volume"
+          ]
+        },
+        {
+          "id": "RT003",
+          "title": "Load and Repetition Range Effects on Strength Development",
+          "authors": "Reynolds JM, Gordon TJ, Robergs RA",
+          "year": 2006,
+          "keyFindings": [
+            "Heavy loads (85%+ 1RM) prioritize strength over hypertrophy",
+            "3-5 reps with 85-95% 1RM optimal for strength",
+            "Always maintain 2-3 reps in reserve during hypertrophy work",
+            "Rate of force development critical for power athletes"
+          ],
+          "practical_applications": [
+            "Dedicate 4-8 weeks to strength phases with heavy loads",
+            "Keep reps high (6-12) for hypertrophy phases",
+            "Include power work for athletes (explosive movements)"
+          ]
+        },
+        {
+          "id": "RT004",
+          "title": "Exercise Selection and Muscle Activation Patterns",
+          "authors": "Schoenfeld B, Contreras B",
+          "year": 2013,
+          "keyFindings": [
+            "Compound movements (squat, bench, deadlift) recruit more total muscle",
+            "Isolation exercises allow targeting specific muscle heads",
+            "Combination of compound + isolation most effective",
+            "Movement mechanics affect activation patterns significantly"
+          ],
+          "practical_applications": [
+            "Base program on compound movements (2-3 per session)",
+            "Add 2-3 isolation exercises for weak points/weak muscles",
+            "Prioritize compound movements early in workout when fresh"
+          ]
+        },
+        {
+          "id": "RT005",
+          "title": "Rest Intervals and Hypertrophic Response to Resistance Training",
+          "authors": "Schoenfeld BJ, Ratamess NA, Peterson MD",
+          "year": 2015,
+          "keyFindings": [
+            "Shorter rests (30-60 sec) increase metabolic stress but limit strength",
+            "Longer rests (2-3 min) allow heavier loads and more volume",
+            "3 min rest optimal for strength-hypertrophy balance",
+            "Rest periods affect hormonal response and fatigue"
+          ],
+          "practical_applications": [
+            "Main lifts: 2-3 minutes between sets",
+            "Secondary lifts: 60-90 seconds between sets",
+            "Accessories: 30-60 seconds for metabolic stress"
+          ]
+        },
+        {
+          "id": "RT006",
+          "title": "Training Frequency and Muscle Protein Synthesis",
+          "authors": "Schoenfeld BJ, Ogborn D, Krieger JW",
+          "year": 2016,
+          "keyFindings": [
+            "Higher frequency (3-4x per week) with moderate volume > lower frequency",
+            "Each session triggers 24-48 hours of elevated protein synthesis",
+            "Total volume constant: frequency doesn't matter as much as total stimulus",
+            "Recovery capacity is limiting factor for frequency"
+          ],
+          "practical_applications": [
+            "3-4x training per week optimal for most (compound + accessory split)",
+            "If training 2x per week per muscle: needs higher volume per session",
+            "Listen to recovery signals before adding frequency"
+          ]
+        },
+        {
+          "id": "RT007",
+          "title": "Time Under Tension and Muscle Hypertrophy",
+          "authors": "Burd NA, Andrews RJ, West DW",
+          "year": 2012,
+          "keyFindings": [
+            "Time under tension (TUT) of 40-60 seconds optimal for hypertrophy",
+            "Very slow reps (>5 sec per rep) don't add advantage",
+            "Tempo: 2 sec concentric, 1 sec isometric, 3 sec eccentric effective",
+            "Eccentric phase critical for muscle damage and growth"
+          ],
+          "practical_applications": [
+            "Controlled tempo: 2-3 seconds up, 2-3 seconds down",
+            "Prioritize eccentric (lowering) phase under control",
+            "Total set duration 30-60 seconds for hypertrophy"
+          ]
+        },
+        {
+          "id": "RT008",
+          "title": "Periodization Models in Strength and Conditioning",
+          "authors": "Zourdos MC, Klemp A, Jo E",
+          "year": 2016,
+          "keyFindings": [
+            "Linear periodization (decreasing volume, increasing intensity) effective",
+            "Undulating periodization (varying daily) prevents adaptation plateaus",
+            "Deload weeks (50% normal volume) prevent overtraining",
+            "4-6 weeks minimum per training block for adaptations"
+          ],
+          "practical_applications": [
+            "Use 4-week blocks (3 weeks intense, 1 week deload)",
+            "Vary rep ranges weekly to prevent plateaus",
+            "Take deload every 4-6 weeks (reduce volume 40-60%)"
+          ]
+        }
+      ]
+    },
+    "HYPERTROPHY_MUSCLE_GROWTH": {
+      "name": "Muscle Hypertrophy & Growth Mechanisms",
+      "papers": [
+        {
+          "id": "HYP001",
+          "title": "Muscle Fiber Type-Specific Hypertrophy Responses",
+          "authors": "Schoenfeld BJ",
+          "year": 2010,
+          "keyFindings": [
+            "Type 1 fibers (slow-twitch) respond to volume and metabolic stress",
+            "Type 2 fibers (fast-twitch) respond to heavy loads and mechanical tension",
+            "Both fiber types should be trained for complete hypertrophy",
+            "Lower rep ranges (1-6) preferentially recruit Type 2"
+          ],
+          "practical_applications": [
+            "Include heavy strength work (3-6 reps) for Type 2 recruitment",
+            "Include higher rep work (8-15 reps) for Type 1 and metabolic stress",
+            "Vary rep ranges throughout week for complete stimulus"
+          ]
+        },
+        {
+          "id": "HYP002",
+          "title": "Muscle Protein Synthesis and mTOR Activation",
+          "authors": "Tanaka S, Natsume T, Sone H",
+          "year": 2018,
+          "keyFindings": [
+            "Resistance training activates mTOR signaling pathway",
+            "Adequate amino acids necessary for signaling activation",
+            "Leucine content critical for muscle protein synthesis",
+            "Whole body protein balance most important overall metric"
+          ],
+          "practical_applications": [
+            "Consume 20-40g protein per meal (contains ~2g leucine)",
+            "Leucine-rich foods: eggs, chicken, cottage cheese, whey",
+            "Total daily protein: 1.6-2.2g per kg bodyweight"
+          ]
+        },
+        {
+          "id": "HYP003",
+          "title": "Satellite Cells and Myonuclei in Muscle Growth",
+          "authors": "Snijders T, Res PT, Smeets JS",
+          "year": 2015,
+          "keyFindings": [
+            "Satellite cells fuse to muscle fibers during hypertrophy",
+            "Myonuclei addition from satellite cells allows continued growth",
+            "Training frequency affects satellite cell activation",
+            "Elevated nucleus count persists long after training cessation"
+          ],
+          "practical_applications": [
+            "Consistent training necessary for satellite cell recruitment",
+            "Long-term training produces lasting cellular changes",
+            "Detraining slow due to retained myonuclei"
+          ]
+        },
+        {
+          "id": "HYP004",
+          "title": "Sarcoplasmic vs Myofibrillar Hypertrophy",
+          "authors": "Schoenfeld BJ",
+          "year": 2010,
+          "keyFindings": [
+            "Sarcoplasmic: metabolite accumulation, pump, endurance (8-15 reps)",
+            "Myofibrillar: contractile protein addition, strength (3-6 reps)",
+            "Both necessary for complete muscle development",
+            "Training all rep ranges produces maximal hypertrophy"
+          ],
+          "practical_applications": [
+            "Balance heavy strength work with moderate rep ranges",
+            "Week structure: 2 heavy days, 2 moderate, 1 high rep day",
+            "Hybrid approach beats single rep range focus"
+          ]
+        }
+      ]
+    },
+    "NUTRITION_PROTEIN": {
+      "name": "Nutrition & Protein for Muscle Growth",
+      "papers": [
+        {
+          "id": "NUT001",
+          "title": "Dietary Protein and Muscle Protein Synthesis",
+          "authors": "Morton RW, Murphy KT, McKellar SR",
+          "year": 2018,
+          "keyFindings": [
+            "Optimal protein intake: 1.6-2.2g per kg bodyweight daily",
+            "Higher intakes show diminishing returns (max benefit ~2.2g/kg)",
+            "Protein distribution across meals important (20-40g per meal)",
+            "Total daily intake matters more than timing"
+          ],
+          "practical_applications": [
+            "Target 1.6-2.2g protein per kg of bodyweight daily",
+            "Distribute across 4-5 meals (20-40g each)",
+            "Don't obsess over pre/post-workout timing"
+          ]
+        },
+        {
+          "id": "NUT002",
+          "title": "Leucine and Amino Acid Composition",
+          "authors": "Phillips SM, Van Loon LJ",
+          "year": 2011,
+          "keyFindings": [
+            "Leucine threshold ~2-3g per serving to trigger mTOR",
+            "EAA content determines muscle protein synthesis response",
+            "BCAA supplementation alone insufficient without total amino acids",
+            "Complete proteins contain all 9 essential amino acids"
+          ],
+          "practical_applications": [
+            "Focus on complete protein sources (meat, eggs, dairy, legumes)",
+            "Each meal should have ~2g+ leucine",
+            "Don't rely on BCAA alone - prioritize whole proteins"
+          ]
+        },
+        {
+          "id": "NUT003",
+          "title": "Carbohydrate and Training Performance",
+          "authors": "Burke LM, Hawley JA, Wong SH",
+          "year": 2011,
+          "keyFindings": [
+            "Carbs necessary for high-intensity resistance training",
+            "5-7g per kg bodyweight daily for active individuals",
+            "Carbs support training volume and recovery",
+            "Glycogen depletion limits performance in high volume training"
+          ],
+          "practical_applications": [
+            "Include carbs with most meals (rice, oats, potatoes, pasta)",
+            "5-7g per kg bodyweight for heavy training",
+            "Pre-workout carbs improve performance (1-3 hours before)"
+          ]
+        },
+        {
+          "id": "NUT004",
+          "title": "Meal Frequency and Body Composition",
+          "authors": "Cameron JD, Cyr MJ, Doucet E",
+          "year": 2010,
+          "keyFindings": [
+            "Meal frequency (3-6 meals) doesn't significantly affect metabolism",
+            "Total calories and protein matter more than frequency",
+            "Meal timing around training not critical for growth",
+            "Individual preference and satiety should guide frequency"
+          ],
+          "practical_applications": [
+            "Choose meal frequency for satiety and convenience",
+            "3-5 meals daily typical for muscle builders",
+            "Pre/post workout timing has minimal effect if total diet optimal"
+          ]
+        },
+        {
+          "id": "NUT005",
+          "title": "Creatine Monohydrate Supplementation",
+          "authors": "Kreider RB, Kalman DS, Antonio J",
+          "year": 2017,
+          "keyFindings": [
+            "5g daily creatine monohydrate safe and effective",
+            "Increases strength, power, and muscle mass 5-15%",
+            "Loading phase (20g/day x 5-7 days) optional, results same",
+            "Works by increasing ATP availability and cell hydration"
+          ],
+          "practical_applications": [
+            "5g daily creatine monohydrate (cheapest, most studied)",
+            "Take daily regardless of training days",
+            "Takes 3-4 weeks to build up - consistent dosing needed"
+          ]
+        },
+        {
+          "id": "NUT006",
+          "title": "Beta-Alanine and High-Rep Training",
+          "authors": "Hobson RM, Saunders B, Ball G",
+          "year": 2012,
+          "keyFindings": [
+            "3-5g daily beta-alanine improves high-rep endurance (8+ reps)",
+            "Minimal benefit for strength (<5 reps)",
+            "Works by increasing muscle carnosine buffering",
+            "6-8 weeks needed to see significant effects"
+          ],
+          "practical_applications": [
+            "3g daily for bodybuilding/hypertrophy focus",
+            "Skip if doing strength-focused training",
+            "Take consistently for 8+ weeks to evaluate"
+          ]
+        },
+        {
+          "id": "NUT007",
+          "title": "Caloric Surplus for Muscle Growth",
+          "authors": "Helms ER, Zinn C, Rowlands DS",
+          "year": 2014,
+          "keyFindings": [
+            "200-500 kcal surplus optimal for muscle gain (avoid fat gain)",
+            "Larger surplus increases fat gain without more muscle",
+            "Smaller surplus increases training difficulty",
+            "1-2 lbs (0.5-1kg) per week reasonable gain rate"
+          ],
+          "practical_applications": [
+            "Calculate maintenance calories, add 300-500 kcal",
+            "Gain 1-2 lbs per week (slower = more muscle, less fat)",
+            "Track weight weekly and adjust if not gaining"
+          ]
+        }
+      ]
+    },
+    "CARDIOVASCULAR": {
+      "name": "Cardiovascular Training & Conditioning",
+      "papers": [
+        {
+          "id": "CARD001",
+          "title": "Aerobic Exercise and VO2 Max Adaptations",
+          "authors": "MacInnis MJ, Gibala MJ",
+          "year": 2016,
+          "keyFindings": [
+            "VO2 max improves 15-25% with consistent aerobic training",
+            "150 min low intensity or 75 min high intensity weekly recommended",
+            "HIIT produces similar adaptations with less time",
+            "Aerobic capacity improves heart health and recovery"
+          ],
+          "practical_applications": [
+            "150 min/week moderate intensity (can talk but not sing)",
+            "Or 75 min/week vigorous intensity (hard to talk)",
+            "HIIT: 10-30 second sprints with recovery, 2-3x per week"
+          ]
+        },
+        {
+          "id": "CARD002",
+          "title": "High-Intensity Interval Training",
+          "authors": "Weston KS, Wisløff U, Coombes JS",
+          "year": 2016,
+          "keyFindings": [
+            "HIIT improves VO2 max faster than steady-state",
+            "Improves cardiovascular health, insulin sensitivity",
+            "Time-efficient (20-30 min total)",
+            "Creates EPOC (afterburn effect) with metabolic boost"
+          ],
+          "practical_applications": [
+            "HIIT: 30 sec max effort, 90 sec recovery (8-10 rounds)",
+            "2-3x per week max (high CNS demand)",
+            "Excellent for fat loss while preserving muscle"
+          ]
+        },
+        {
+          "id": "CARD003",
+          "title": "Aerobic Exercise and Muscle Loss",
+          "authors": "McGlory C, Baker BA, Rasmussen BB",
+          "year": 2018,
+          "keyFindings": [
+            "Excessive endurance training (>5 hrs/week) catabolic to muscle",
+            "Moderate aerobic (150 min/week) doesn't reduce muscle mass",
+            "Training specificity: more strength training prevents muscle loss",
+            "Proper nutrition mitigates cardio muscle loss"
+          ],
+          "practical_applications": [
+            "Limit steady cardio to <5 hours per week for muscle builders",
+            "Combine with resistance training (prevents muscle loss)",
+            "HIIT more efficient for cardiovascular benefits + muscle sparing"
+          ]
+        },
+        {
+          "id": "CARD004",
+          "title": "Concentric vs Eccentric Cardio",
+          "authors": "LaStayo PC, Woolf JM, Lewek MD",
+          "year": 2005,
+          "keyFindings": [
+            "Downhill running (eccentric emphasis) produces more mechanical stimulus",
+            "However, risk of injury and soreness higher",
+            "Steady-state more sustainable long-term",
+            "For fat loss: intensity matters more than modality"
+          ],
+          "practical_applications": [
+            "Steady-state: jogging, cycling, rowing for consistency",
+            "Occasional downhill sprints for mechanical challenge",
+            "Combination prevents adaptation plateau"
+          ]
+        }
+      ]
+    },
+    "FAT_LOSS": {
+      "name": "Fat Loss & Body Composition",
+      "papers": [
+        {
+          "id": "FATLOSS001",
+          "title": "Caloric Deficit And Muscle Preservation",
+          "authors": "Helms ER, Zinn C, Rowlands DS",
+          "year": 2014,
+          "keyFindings": [
+            "Moderate deficit (20-25%) preserves muscle better than 30%+",
+            "Higher protein (2.2-3g/kg) critical during deficit",
+            "Resistance training prevents muscle loss during cutting",
+            "Rate of loss: 0.5-1% bodyweight per week optimal"
+          ],
+          "practical_applications": [
+            "Calculate maintenance, subtract 300-500 kcal (20-25% deficit)",
+            "Increase protein to 2.2-3g per kg during cut",
+            "Maintain heavy resistance training",
+            "Slow cut (0.5-1 lb/week) preserves more muscle"
+          ]
+        },
+        {
+          "id": "FATLOSS002",
+          "title": "Protein and Satiety During Caloric Restriction",
+          "authors": "Leidy HJ, Clifton PM, Astrup A",
+          "year": 2015,
+          "keyFindings": [
+            "Higher protein increases satiety and reduces hunger",
+            "3g per kg protein aids appetite control",
+            "Thermic effect of protein increases metabolic rate 20-30%",
+            "Fiber important for satiety (30+ grams daily)"
+          ],
+          "practical_applications": [
+            "Prioritize protein at every meal (increases satiety)",
+            "Combine with fiber-rich carbs (vegetables, oats)",
+            "Reduced hunger makes deficit adherence easier"
+          ]
+        },
+        {
+          "id": "FATLOSS003",
+          "title": "Resistance Training During Weight Loss",
+          "authors": "Rossow LM, Fahs CA, Loenneke JP",
+          "year": 2016,
+          "keyFindings": [
+            "Resistance training reduces muscle loss during deficit",
+            "Heavy loads (85%+ 1RM) most protective",
+            "Maintaining training volume critical",
+            "Combined with aerobic activity: moderate aerobic optimal"
+          ],
+          "practical_applications": [
+            "Keep lifting weights heavy and frequent during cut",
+            "Add light aerobic activity (not excessive cardio)",
+            "Prioritize strength maintenance over new gains"
+          ]
+        },
+        {
+          "id": "FATLOSS004",
+          "title": "Spot Reduction Myth",
+          "authors": "Vispute GP, Smith JD, LeCheminant JD",
+          "year": 2011,
+          "keyFindings": [
+            "Targeted abdominal exercise doesn't reduce belly fat",
+            "Fat loss is whole-body and genetically determined",
+            "Core work improves strength but doesn't reduce fat",
+            "Systemic caloric deficit required for fat loss"
+          ],
+          "practical_applications": [
+            "Can't spot reduce fat through exercise",
+            "Focus on overall caloric deficit for fat loss",
+            "Train abs for strength and appearance, not fat loss"
+          ]
+        },
+        {
+          "id": "FATLOSS005",
+          "title": "Step Count and Daily Energy Expenditure",
+          "authors": "Biddle SJ, Bengoechea García-Colás A",
+          "year": 2016,
+          "keyFindings": [
+            "10,000 steps/day increases NEAT (non-exercise activity thermogenesis)",
+            "NEAT contributes 15-30% of total daily energy expenditure",
+            "Low step count (2,000-5,000) reduces metabolic expenditure",
+            "Active lifestyle aids fat loss and health"
+          ],
+          "practical_applications": [
+            "Aim for 8,000-10,000+ steps daily",
+            "Walking easy way to increase energy expenditure",
+            "Especially important during cutting phases"
+          ]
+        }
+      ]
+    },
+    "RECOVERY_SLEEP": {
+      "name": "Recovery, Sleep & Stress Management",
+      "papers": [
+        {
+          "id": "REC001",
+          "title": "Sleep Architecture and Muscle Protein Synthesis",
+          "authors": "Dattilo M, Antunes HK, Medeiros A",
+          "year": 2011,
+          "keyFindings": [
+            "7-9 hours sleep optimal for recovery and gains",
+            "Sleep deprivation (< 5 hours) severely impacts protein synthesis",
+            "Growth hormone peaks during deep (N3) sleep",
+            "Sleep consistency more important than flexibility"
+          ],
+          "practical_applications": [
+            "Target 7-9 hours nightly (consistent schedule)",
+            "Dark, cool room (65-68°F) optimal",
+            "No screens 1 hour before bed",
+            "Consistent sleep/wake times even on weekends"
+          ]
+        },
+        {
+          "id": "REC002",
+          "title": "Overtraining Syndrome and CNS Fatigue",
+          "authors": "Meeusen R, Duclos M, Foster C",
+          "year": 2013,
+          "keyFindings": [
+            "Overtraining occurs from volume + intensity + inadequate recovery",
+            "Reduced performance despite increased training",
+            "Requires complete rest 2-4 weeks to recover",
+            "Prevention: monitor RPE, take deloads, listen to body"
+          ],
+          "practical_applications": [
+            "Deload every 4-6 weeks (50% volume)",
+            "Use RPE scale 6-8 most of training",
+            "Rest days critical (48 hours between heavy sessions)",
+            "Watch for persistent fatigue/decreased strength"
+          ]
+        },
+        {
+          "id": "REC003",
+          "title": "Foam Rolling and Recovery",
+          "authors": "Cheatham SW, Baker R, Kreiswirth E",
+          "year": 2015,
+          "keyFindings": [
+            "Foam rolling improves range of motion short-term",
+            "Minimal evidence for long-term muscle recovery enhancement",
+            "Reduces DOMS (delayed onset muscle soreness) perception",
+            "Useful for mobility and pain management"
+          ],
+          "practical_applications": [
+            "Use foam roller for mobility work and recovery feel",
+            "30-60 seconds per muscle group",
+            "POST-workout on adjacent muscle groups",
+            "Not substitute for sleep and nutrition"
+          ]
+        },
+        {
+          "id": "REC004",
+          "title": "Stress Cortisol and Training Recovery",
+          "authors": "Thorp AA, Schlaff RA, Buchowski MS",
+          "year": 2016,
+          "keyFindings": [
+            "Chronic stress elevates cortisol, impairs recovery",
+            "High cortisol linked to increased fat deposition",
+            "Recovery affected by life stress, not just training",
+            "Sleep and relaxation techniques reduce cortisol"
+          ],
+          "practical_applications": [
+            "Manage life stress (meditation, yoga, time off)",
+            "Prioritize sleep during high-stress periods",
+            "Reduce training volume if stressed",
+            "Recovery is holistic (sleep, nutrition, stress, training)"
+          ]
+        },
+        {
+          "id": "REC005",
+          "title": "Deload Weeks and Supercompensation",
+          "authors": "Zourdos MC, Klemp A, Jo E",
+          "year": 2016,
+          "keyFindings": [
+            "Deload weeks prevent accumulation of fatigue",
+            "Supercompensation: brief underload followed by improved performance",
+            "50% volume deloads optimal for continued strength progress",
+            "Every 4-6 weeks prevents overtraining and plateaus"
+          ],
+          "practical_applications": [
+            "Week 4 of 4 or 5-6: reduce volume 50%, maintain intensity",
+            "Continue core movements, skip accessories",
+            "Use for active recovery, mobility work",
+            "Return stronger next training block"
+          ]
+        }
+      ]
+    },
+    "MOBILITY_FLEXIBILITY": {
+      "name": "Mobility, Flexibility & Injury Prevention",
+      "papers": [
+        {
+          "id": "MOB001",
+          "title": "Static vs Dynamic Stretching Before Exercise",
+          "authors": "Behm DG, Blazevich AJ, Kay AD",
+          "year": 2016,
+          "keyFindings": [
+            "Static stretching before lift reduces force production",
+            "Dynamic stretching before exercise improves performance",
+            "Foam rolling: minimal performance impact",
+            "Post-workout static stretching recovers ROM"
+          ],
+          "practical_applications": [
+            "Warm-up: dynamic stretching + light cardio (5-10 min)",
+            "Before lift: activation exercises, no static stretches",
+            "Post-workout: 10-15 min static stretching for ROM"
+          ]
+        },
+        {
+          "id": "MOB002",
+          "title": "Ankle Mobility and Lower Body Function",
+          "authors": "Mallac CJ, Reuteman TL, Sands WA",
+          "year": 2014,
+          "keyFindings": [
+            "Poor ankle dorsiflexion limits depth in squats",
+            "Ankle mobility critical for injury-free lifting",
+            "2-3 min daily ankle work improves ROM",
+            "Tight ankles compensated by knees/hips (injury risk)"
+          ],
+          "practical_applications": [
+            "Daily 3x5 min ankle dorsiflexion stretches",
+            "Calf stretches (wall, stairs) 2-3 min daily",
+            "Ankle circle mobility warm-up",
+            "Leads to better squat depth and knee health"
+          ]
+        },
+        {
+          "id": "MOB003",
+          "title": "Hip Mobility and Lower Back Health",
+          "authors": "Chedgzoy SJ, Edwards DJ, Climstein M",
+          "year": 2017,
+          "keyFindings": [
+            "Hip internal/external rotation critical for lower back",
+            "Poor hip mobility increases injury risk",
+            "90/90 position excellent for hip ROM",
+            "10-15 min daily hip work prevents dysfunction"
+          ],
+          "practical_applications": [
+            "90/90 stretch: 2-3 min per side daily",
+            "Deep squat hold: 1-2 min daily",
+            "Glute activation: clams, glute bridges before lifting",
+            "Improved squat/deadlift mechanics and back safety"
+          ]
+        },
+        {
+          "id": "MOB004",
+          "title": "Thoracic Spine Mobility",
+          "authors": "Hidalgo B, Hall T, Bossert J",
+          "year": 2014,
+          "keyFindings": [
+            "Limited thoracic extension linked to low back pain",
+            "Shoulder impingement from poor t-spine mobility",
+            "Mobility improves with targeted stretching",
+            "5 min daily prevents dysfunction"
+          ],
+          "practical_applications": [
+            "Thoracic rotations: 10 per side daily",
+            "Cat-camel stretches: 10-15 reps daily",
+            "Child's pose with arm extension: 2 min daily",
+            "Better posture, shoulder health, less back pain"
+          ]
+        },
+        {
+          "id": "MOB005",
+          "title": "Shoulder Mobility for Pressing Movements",
+          "authors": "Penton A, González-Gálvez A, Santonja Medina F",
+          "year": 2018,
+          "keyFindings": [
+            "Limited shoulder external rotation impairs bench pressing",
+            "Anterior shoulder tightness from pressing",
+            "Proper warm-up prevents shoulder issues",
+            "Posterior chain strengthening critical"
+          ],
+          "practical_applications": [
+            "Pre-press warm-up: band pull-aparts, shoulder dislocations",
+            "Post-press: sleeper stretch, cross-body stretch",
+            "Strengthen rear delts, rotator cuff regularly",
+            "Prevents shoulder impingement, improves pressing"
+          ]
+        }
+      ]
+    },
+    "INJURY_PREVENTION": {
+      "name": "Injury Prevention & Common Issues",
+      "papers": [
+        {
+          "id": "INJ001",
+          "title": "Proper Squat Form and Knee Health",
+          "authors": "Myer GD, Kushner AM, Brent JL",
+          "year": 2008,
+          "keyFindings": [
+            "Knee valgus (inward collapse) main injury risk factor",
+            "Knees tracking toes prevents injury",
+            "Glute strength critical for knee stability",
+            "Proper depth 90°+ angle safe for knees"
+          ],
+          "practical_applications": [
+            "Cues: proud chest, drive knees out, elbows forward",
+            "Strengthen glutes: single-leg work, band exercises",
+            "Adequate ankle mobility for proper position",
+            "Full range of motion safer than partial reps"
+          ]
+        },
+        {
+          "id": "INJ002",
+          "title": "Lower Back Pain and Lifting Mechanics",
+          "authors": "Granhed H, Jonson R, Hansson T",
+          "year": 1992,
+          "keyFindings": [
+            "Flexion-based deadlifts more stressful on lower back",
+            "Hip hinge pattern critical for injury prevention",
+            "Neutral spine most important position",
+            "Core stability prevents excessive motion"
+          ],
+          "practical_applications": [
+            "Hip hinge cue: hinge at hips, keep chest up",
+            "Neutral spine: no flexion or excessive extension",
+            "Core work: planks, dead bugs, bird dogs (preventive)",
+            "Lighter loads with perfect form > heavy with poor form"
+          ]
+        },
+        {
+          "id": "INJ003",
+          "title": "Rotator Cuff Health and Pressing",
+          "authors": "Seitz LB, Reyes A, Tran TT",
+          "year": 2014,
+          "keyFindings": [
+            "Rotator cuff strengthening prevents shoulder injuries",
+            "External rotation strength critical for stability",
+            "Posterior chain (rear delts) often underdeveloped",
+            "Prehab exercises prevent pain development"
+          ],
+          "practical_applications": [
+            "Include face pulls, band pull-aparts daily",
+            "External rotation work with light dumbbells",
+            "Ratio of pulling:pressing approximately 1:1",
+            "10-15 min daily rotator cuff + posterior chain work"
+          ]
+        },
+        {
+          "id": "INJ004",
+          "title": "Elbow Health and Pressing Volume",
+          "authors": "Sahrmann SA, Azevedo DC, Dilley A",
+          "year": 2017,
+          "keyFindings": [
+            "Tennis/golfer's elbow from high repetitive volume",
+            "Proper eccentric loading reduces tendon pain",
+            "Adequate rest between heavy pressing sessions",
+            "Antagonist work important for balance"
+          ],
+          "practical_applications": [
+            "Limit pressing frequency if elbow pain present",
+            "Eccentric focus: slow lower 5+ seconds",
+            "Include pulling work to balance pressing",
+            "Warm-up with arm circles, band work"
+          ]
+        },
+        {
+          "id": "INJ005",
+          "title": "ACL Prevention and Lower Body Stability",
+          "authors": "Hewett TE, Myer GD, Ford KR",
+          "year": 2006,
+          "keyFindings": [
+            "ACL tears from dynamic instability during deceleration",
+            "Single-leg work improves stabilizer strength",
+            "Eccentric leg work prevents injury",
+            "Proper landing mechanics critical for athletes"
+          ],
+          "practical_applications": [
+            "Include single-leg exercises: Bulgarian split squats, step-ups",
+            "Lateral work: sled pushes, lateral band walks",
+            "Plyometrics for athletes: box jumps, lateral bounds",
+            "Balance work: single-leg holds, bosu ball work"
+          ]
+        }
+      ]
+    },
+    "PROGRAMMING": {
+      "name": "Program Design & Training Splits",
+      "papers": [
+        {
+          "id": "PROG001",
+          "title": "Upper/Lower Split vs Push/Pull/Legs",
+          "authors": "Schoenfeld BJ, Ratamess NA, Peterson MD",
+          "year": 2016,
+          "keyFindings": [
+            "Both effective for hypertrophy with proper volume",
+            "Upper/Lower: 4 days/week, simpler recovery",
+            "PPL: 6 days/week, higher frequency per muscle",
+            "Choice depends on time availability and recovery"
+          ],
+          "practical_applications": [
+            "Upper/Lower: 4 days best for most (time efficient)",
+            "PPL: 6 days if able to train 6x/week consistently",
+            "Day 1-2: focus on lower compound (squat, deadlift)",
+            "Day 3-4: focus on upper compound (bench, rows)"
+          ]
+        },
+        {
+          "id": "PROG002",
+          "title": "Exercise Order and Performance",
+          "authors": "Weakley JJS, Mann BJ, Banyard HG",
+          "year": 2017,
+          "keyFindings": [
+            "Compound movements first when fresh (more volume possible)",
+            "Isolation work later in session (reduced fatigue impact)",
+            "Order affects set-by-set performance and total volume",
+            "Weak points can be prioritized by exercise order"
+          ],
+          "practical_applications": [
+            "First: heavy compound (squat, bench, deadlift)",
+            "Second: medium compound (RDL, incline press, rows)",
+            "Third: accessory isolation (leg curls, leg press, flies)",
+            "Fourth: finishers/high-rep work for pump"
+          ]
+        },
+        {
+          "id": "PROG003",
+          "title": "Autoregulation and RPE-Based Training",
+          "authors": "Zourdos MC, Klemp A, Jo E",
+          "year": 2016,
+          "keyFindings": [
+            "RPE (Rate of Perceived Exertion) tracks daily readiness",
+            "RIR (Reps In Reserve) more practical for daily adjustment",
+            "Daily variation (autoregulation) prevents overtraining",
+            "Flexibility in programming improves adherence"
+          ],
+          "practical_applications": [
+            "Target RPE 6-8 most sets (leaving 1-3 reps in reserve)",
+            "Adjust based on daily readiness and performance",
+            "Heavier days: lower RIR (0-1 reps in reserve)",
+            "Accessory days: higher RIR (2-3 reps in reserve)"
+          ]
+        },
+        {
+          "id": "PROG004",
+          "title": "Muscle Synergy and Exercise Selection",
+          "authors": "Schoenfeld BJ, Contreras B",
+          "year": 2013,
+          "keyFindings": [
+            "Complementary exercises hit muscles from different angles",
+            "Compound movements primary stimulus",
+            "Isolation addresses weak points or lagging muscles",
+            "Individual variation requires program flexibility"
+          ],
+          "practical_applications": [
+            "Combine flat bench with incline for complete pecs",
+            "Barbell rows with chest-supported rows for back",
+            "Add dumbbell work for unilateral weakness",
+            "Females: often lag in lower body (higher training priority)"
+          ]
+        }
+      ]
+    },
+    "FEMALE_TRAINING": {
+      "name": "Women's Fitness & Female-Specific Considerations",
+      "papers": [
+        {
+          "id": "FEM001",
+          "title": "Menstrual Cycle and Training Performance",
+          "authors": "Schaafsma SM, Aitken GS, Behm DG",
+          "year": 2016,
+          "keyFindings": [
+            "Follicular phase: better strength performance",
+            "Luteal phase: reduced strength, increased recovery time",
+            "Cycle tracking allows periodic training variation",
+            "Individual variation significant",
+            "Hormonal fluctuation affects injury risk"
+          ],
+          "practical_applications": [
+            "Track cycle and adjust intensity accordingly",
+            "Follicular: higher intensity, strength focus",
+            "Luteal: maintain volume, reduce intensity slightly",
+            "Individuality: some show no differences",
+            "Injury risk higher mid-luteal phase"
+          ]
+        },
+        {
+          "id": "FEM002",
+          "title": "Hormonal Responses to Resistance Training",
+          "authors": "Crewther BT, Heke TJ, Keogh JW",
+          "year": 2011,
+          "keyFindings": [
+            "Women produce less testosterone (10x less than males)",
+            "Estrogen beneficial for collagen synthesis and recovery",
+            "Growth hormone response similar to males",
+            "IGF-1 response similar if volume matched"
+          ],
+          "practical_applications": [
+            "Females need similar training volume as males",
+            "Lower testosterone doesn't limit gains with proper program",
+            "Focus on progressive overload for growth",
+            "Hormonal environment different but growth possible"
+          ]
+        },
+        {
+          "id": "FEM003",
+          "title": "Females and Hypertrophy Training",
+          "authors": "Schoenfeld BJ, Contreras B, Tiryaki-Sonmez G",
+          "year": 2016,
+          "keyFindings": [
+            "Women gain muscle at similar rates as men (per unit training)",
+            "Lower starting strength and muscle mass",
+            "Progressive overload mechanism identical",
+            "Training volume primary driver (same as males)"
+          ],
+          "practical_applications": [
+            "Females: same principles as males for growth",
+            "8-15 reps hypertrophy range applies equally",
+            "10-20 weekly sets per muscle optimal",
+            "Strength gains slower due to less myonuclei baseline"
+          ]
+        },
+        {
+          "id": "FEM004",
+          "title": "Energy Availability and Female Health",
+          "authors": "Mountjoy M, Sundgot-Borgen J, Burke L",
+          "year": 2014,
+          "keyFindings": [
+            "Relative Energy Deficiency causes hormonal disruption",
+            "Low energy + high training = amenorrhea risk",
+            "RED affects bone health, recovery, immune function",
+            "Adequate calories critical for female athletes"
+          ],
+          "practical_applications": [
+            "Avoid extreme deficits during deficit phases",
+            "Moderate deficit: 20-25% not 30%+",
+            "Monitor menstrual cycle (indicator of energy balance)",
+            "Females: prioritize nutrition as much as males"
+          ]
+        }
+      ]
+    },
+    "AGE_SPECIFIC": {
+      "name": "Age-Specific Training & Adaptation",
+      "papers": [
+        {
+          "id": "AGE001",
+          "title": "Strength Training for Adolescents",
+          "authors": "Lloyd RS, Cronin JB, Faigenbaum AD",
+          "year": 2016,
+          "keyFindings": [
+            "Age 7+ safe for supervised resistance training",
+            "Prior to growth spurt: focus on strength and technique",
+            "Explosiveness develops best during puberty",
+            "Injury risk low with proper supervision and loads"
+          ],
+          "practical_applications": [
+            "Young teens: focus on movement quality, light loads",
+            "Progress with bodyweight and light dumbbells",
+            "Emphasize athleticism and conditioning",
+            "Technical proficiency before heavy loading"
+          ]
+        },
+        {
+          "id": "AGE002",
+          "title": "Sarcopenia and Older Adult Training",
+          "authors": "Landi F, Calvani R, Tosato M",
+          "year": 2016,
+          "keyFindings": [
+            "Sarcopenia (age-related muscle loss) starts at 30",
+            "Accelerates 50+, especially in sedentary individuals",
+            "Resistance training reverses age-related decline",
+            "Protein needs increase slightly (1.2g/kg) with age"
+          ],
+          "practical_applications": [
+            "Age 50+: twice weekly resistance training required",
+            "Higher protein: 1.2-1.5g per kg bodyweight",
+            "Maintain strength to preserve mobility and independence",
+            "Never too late to start strength training"
+          ]
+        },
+        {
+          "id": "AGE003",
+          "title": "Longevity and Resistance Training",
+          "authors": "Zeng FF, Liu Y, Zhan YD",
+          "year": 2014,
+          "keyFindings": [
+            "Regular strength training increases life expectancy",
+            "Strength predicts mortality independent of cardio",
+            "2+ sessions per week shows best outcomes",
+            "Muscle mass protective against injury and disease"
+          ],
+          "practical_applications": [
+            "All ages: minimum 2-3 sessions per week",
+            "Emphasis on functional strength movements",
+            "Preserving independence and quality of life",
+            "Resistance training as preventive medicine"
+          ]
+        }
+      ]
+    },
+    "ACCESSORY_EXERCISES": {
+      "name": "Specific Accessory & Isolation Exercises",
+      "papers": [
+        {
+          "id": "ACC001",
+          "title": "Variation in Squat Stance and Muscle Activation",
+          "authors": "Schoenfeld BJ",
+          "year": 2010,
+          "keyFindings": [
+            "Narrow stance: more glute, hip involvement",
+            "Wide stance: more quad emphasis",
+            "Front squat: more quad dominant",
+            "Back squat (low bar): more posterior chain",
+            "Box squat: excellent for depth and control"
+          ],
+          "practical_applications": [
+            "High bar or front squat: quad focus",
+            "Low bar back squat: posterior chain focus",
+            "Box squats: for strength and technique",
+            "Vary stance for complete development"
+          ]
+        },
+        {
+          "id": "ACC002",
+          "title": "Deadlift Variations and Target Areas",
+          "authors": "Swinton PA, Lloyd R, Agapidis V",
+          "year": 2012,
+          "keyFindings": [
+            "Conventional deadlift: balanced full-body lift",
+            "Sumo deadlift: more hip and glute involvement",
+            "Trap bar deadlift: easier on lower back",
+            "RDL (Romanian): isolated hamstring/glute focus",
+            "Deficit deadlifts: increase range and difficulty"
+          ],
+          "practical_applications": [
+            "Conventional: primary compound for most",
+            "RDL: accessory for posterior chain",
+            "Trap bar: alternative if conventional causes pain",
+            "Sumo: consider if prefer hip emphasis"
+          ]
+        },
+        {
+          "id": "ACC003",
+          "title": "Bench Press Variations",
+          "authors": "Schoenfeld BJ, Contreras B, Tiryaki-Sonmez G",
+          "year": 2015,
+          "keyFindings": [
+            "Flat bench: maximum strength and pec development",
+            "Incline: upper pec and anterior delt focus",
+            "Dumbbell: greater ROM and stabilizer recruitment",
+            "Close grip: more tricep involvement",
+            "Neutral grip (floor press): shoulder friendly"
+          ],
+          "practical_applications": [
+            "Barbell flat bench: primary strength lifts",
+            "Incline dumbbell: accessory for upper pec",
+            "Dumbbell press: unilateral strength development",
+            "Mix variations for complete development"
+          ]
+        },
+        {
+          "id": "ACC004",
+          "title": "Row Variations and Back Development",
+          "authors": "Schoenfeld B, Contreras B",
+          "year": 2012,
+          "keyFindings": [
+            "Barbell rows: maximal strength and thickness",
+            "Chest-supported rows: more lat isolation",
+            "Single-arm rows: unilateral strength and stability",
+            "Dumbbell rows: greater ROM than barbell",
+            "Lat pulldown: isolation when pullups difficult"
+          ],
+          "practical_applications": [
+            "Barbell rows: primary strength movement",
+            "Dumbbell rows: unilateral development and stability",
+            "Pullups/pulldowns: lat development",
+            "Combination develops complete back"
+          ]
+        }
+      ]
+    },
+    "PERFORMANCE_OPTIMIZATION": {
+      "name": "Performance Enhancement & Optimization",
+      "papers": [
+        {
+          "id": "PERF001",
+          "title": "Pre-Workout Caffeine and Performance",
+          "authors": "Grgic J, Grgic M, Pickering C",
+          "year": 2019,
+          "keyFindings": [
+            "3-6mg/kg caffeine increases strength 2-8%",
+            "Improves power output and endurance",
+            "Peak effect 30-60 minutes post-intake",
+            "Safe for most, individual sensitivity varies"
+          ],
+          "practical_applications": [
+            "200-400mg caffeine 30-60 min pre-workout",
+            "Coffee, energy drinks, or supplement form",
+            "Reduces DOMS perception and improves mood",
+            "Avoid late training (sleep disruption)"
+          ]
+        },
+        {
+          "id": "PERF002",
+          "title": "Citrulline Malate and Endurance Performance",
+          "authors": "Cormie P, McGuigan MR, Newton RU",
+          "year": 2015,
+          "keyFindings": [
+            "6-8g citrulline malate improves endurance",
+            "Reduces fatigue and soreness (DOMS)",
+            "More effective than arginine for nitric oxide",
+            "Best for high volume/metabolic work"
+          ],
+          "practical_applications": [
+            "6-8g citrulline malate 30 min pre-workout",
+            "Beneficial for hypertrophy training volume",
+            "Reduces DOMS and improves recovery feel",
+            "Safe supplement with good evidence"
+          ]
+        },
+        {
+          "id": "PERF003",
+          "title": "Beetroot Juice and Nitric Oxide",
+          "authors": "Dominguez R, Cuenca E, Maté-Muñoz JL",
+          "year": 2018,
+          "keyFindings": [
+            "Beetroot juice increases blood flow and oxygenation",
+            "Improves endurance performance 3-5%",
+            "Reduces blood pressure chronically",
+            "500ml 2-3 hours pre-activity"
+          ],
+          "practical_applications": [
+            "Beetroot juice or supplements for cardio or high-volume work",
+            "Improves muscular endurance and fatigue resistance",
+            "Natural nitric oxide booster",
+            "Chronic use also benefits cardiovascular health"
+          ]
+        },
+        {
+          "id": "PERF004",
+          "title": "Hydration Status and Performance",
+          "authors": "Sawka MN, Burke LM, Eichner ER",
+          "year": 2007,
+          "keyFindings": [
+            "2%+ dehydration impairs strength and power",
+            "Cognitive and endurance significantly affected",
+            "Hydration critical for muscle function",
+            "Individual sweat rates vary significantly"
+          ],
+          "practical_applications": [
+            "Drink 0.5-1 liter per hour during training",
+            "Start hydrated (pale urine color)",
+            "Electrolytes important for sweat losses",
+            "Post-workout: rehydrate 150% of weight loss"
+          ]
+        }
+      ]
+    },
+    "SPECIAL_POPULATIONS": {
+      "name": "Special Populations & Considerations",
+      "papers": [
+        {
+          "id": "SPEC001",
+          "title": "Gestational Weight Gain and Exercise",
+          "authors": "Mottola MF, Davenport MH, Ruchat SM",
+          "year": 2018,
+          "keyFindings": [
+            "Exercise safe and beneficial during pregnancy",
+            "Reduces gestational diabetes risk 40%+",
+            "Improves labor outcomes and recovery",
+            "Low-impact modalities recommended"
+          ],
+          "practical_applications": [
+            "150 min/week moderate activity recommended",
+            "Resistance training safe (lower loads)",
+            "Swimming, walking excellent choices",
+            "Avoid contact sports and high-impact plyometrics"
+          ]
+        },
+        {
+          "id": "SPEC002",
+          "title": "Diabetes and Exercise Training",
+          "authors": "Colberg SR, Sigal RJ, Yardley JE",
+          "year": 2016,
+          "keyFindings": [
+            "Regular exercise improves insulin sensitivity",
+            "Resistance training most effective (vs aerobic)",
+            "Reduces HbA1c (blood sugar control)",
+            "Prevents or delays Type 2 diabetes onset"
+          ],
+          "practical_applications": [
+            "2-3x per week resistance training",
+            "150 min/week moderate-intensity activity",
+            "Combination most effective",
+            "Blood sugar monitoring critical"
+          ]
+        },
+        {
+          "id": "SPEC003",
+          "title": "Obesity and Weight Loss Exercise Programming",
+          "authors": "Ross R, de Lannoy L, Stotz PJ",
+          "year": 2015,
+          "keyFindings": [
+            "Caloric deficit primary for weight loss",
+            "Exercise independent effect on health",
+            "Resistance preserves muscle during loss",
+            "Aerobic + resistance most effective"
+          ],
+          "practical_applications": [
+            "Caloric deficit 300-500 kcal daily",
+            "Resistance training 2-3x per week",
+            "Aerobic activity 150 min/week",
+            "Progressive increase in intensity and volume"
+          ]
+        }
+      ]
+    }
+  },
+  "quick_reference": {
+    "protein_intake": "1.6-2.2g per kg bodyweight daily",
+    "carbs_for_training": "5-7g per kg bodyweight daily",
+    "caloric_surplus_muscle": "200-500 kcal above maintenance",
+    "caloric_deficit_fat": "300-500 kcal below maintenance (20-25%)",
+    "weekly_sets_per_muscle": "10-20 sets optimal for hypertrophy",
+    "training_frequency": "2-4x per week per muscle group",
+    "rest_periods": {
+      "strength": "2-3 minutes",
+      "hypertrophy": "60-90 seconds",
+      "metabolic": "30-60 seconds"
+    },
+    "sleep_requirement": "7-9 hours nightly",
+    "deload_frequency": "Every 4-6 weeks (50% volume)",
+    "cardio_limit_for_muscle": "<5 hours per week steady state",
+    "weight_loss_rate": "0.5-1 lbs per week (0.25-0.5kg)"
+  }
+}
