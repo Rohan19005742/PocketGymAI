@@ -99,7 +99,7 @@ export function PersonalizedDashboard() {
               },
             ].map((action, index) => (
               <Link href={action.href} key={index}>
-                <div className="group relative h-full p-6 rounded-2xl border border-neutral-800 bg-neutral-900/50 hover:bg-neutral-900 transition-all duration-300 hover:border-neutralll-700 cursor-pointer overflow-hidden">
+                <div className="group relative h-full p-6 rounded-2xl border border-border bg-card/50 hover:bg-card transition-all duration-300 hover:border-border cursor-pointer overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity transition-all duration-300" />
                   <div className="relative z-10 space-y-3">
                     <h3 className="text-lg font-bold">{action.title}</h3>
@@ -118,19 +118,19 @@ export function PersonalizedDashboard() {
         {/* Recent Activity */}
         <div className="space-y-4">
           <h2 className="text-2xl font-bold">Recent Activity</h2>
-          <div className="p-6 rounded-2xl border border-neutral-800 bg-neutral-900/50">
+          <div className="p-6 rounded-2xl border border-border bg-card/50">
             <div className="space-y-4">
-              <div className="flex items-center justify-between pb-4 border-b border-neutral-800">
+              <div className="flex items-center justify-between pb-4 border-b border-border">
                 <div>
                   <p className="font-semibold">Completed Chest Day</p>
-                  <p className="text-sm text-neutral-400">Yesterday at 6:30 PM</p>
+                  <p className="text-sm text-muted-foreground">Yesterday at 6:30 PM</p>
                 </div>
                 <div className="text-green-400 font-semibold">+500 XP</div>
               </div>
-              <div className="flex items-center justify-between pb-4 border-b border-neutral-800">
+              <div className="flex items-center justify-between pb-4 border-b border-border">
                 <div>
                   <p className="font-semibold">7-Day Streak Achieved</p>
-                  <p className="text-sm text-neutral-400">Last Sunday</p>
+                  <p className="text-sm text-muted-foreground">Last Sunday</p>
                 </div>
                 <div className="text-yellow-400 font-semibold">🔥 Streak!</div>
               </div>

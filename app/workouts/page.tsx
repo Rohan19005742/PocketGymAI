@@ -98,7 +98,7 @@ export default function WorkoutsPage() {
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
           <Button
             variant="outline"
-            className="border-neutral-700 hover:bg-neutral-900/50"
+            className="border-border hover:bg-card/50"
           >
             All Programs
           </Button>
@@ -129,7 +129,7 @@ export default function WorkoutsPage() {
                   <div className="relative z-10 space-y-4">
                     {/* Icon and Badge */}
                     <div className="flex items-start justify-between">
-                      <div className="p-3 bg-neutral-900/60 rounded-lg group-hover:bg-neutral-800 transition-all">
+                      <div className="p-3 bg-card/60 rounded-lg group-hover:bg-card transition-all">
                         <IconComponent className="w-6 h-6 text-blue-400" />
                       </div>
                       <span className="text-xs font-semibold px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full">

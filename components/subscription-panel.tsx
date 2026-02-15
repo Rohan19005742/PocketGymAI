@@ -35,11 +35,11 @@ export function SubscriptionPanel({ userSubscription, onSelect }: SubscriptionPa
   )).filter(Boolean);
 
   return (
-    <section className="max-w-4xl mx-auto p-6 bg-neutral-900 rounded-xl shadow-lg mt-10">
+    <section className="max-w-4xl mx-auto p-6 bg-card rounded-xl shadow-lg mt-10">
       <h2 className="text-2xl font-bold mb-6 text-white">Choose Your Subscription</h2>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
         {tiers.map(tier => (
-          <div key={tier.id} className={`border rounded-lg p-4 bg-black/80 ${userSubscription?.plan === tier.id ? 'border-blue-500' : 'border-neutral-800'}`}> 
+          <div key={tier.id} className={`border rounded-lg p-4 bg-popover ${userSubscription?.plan === tier.id ? 'border-blue-500' : 'border-border'}`}> 
             <h3 className="text-xl font-semibold mb-2 text-white">{tier.name}</h3>
             <p className="text-3xl font-bold mb-4 text-blue-400">{tier.price === 0 ? "Free" : `$${tier.price}/mo`}</p>
             <ul className="mb-4 text-neutral-300 list-disc pl-5">
@@ -57,7 +57,7 @@ export function SubscriptionPanel({ userSubscription, onSelect }: SubscriptionPa
       </div>
       <h3 className="text-xl font-bold mb-4 text-white">Tier Comparison</h3>
       <div className="overflow-x-auto">
-        <table className="min-w-full border border-neutral-800 rounded-lg bg-neutral-950">
+        <table className="min-w-full border border-border rounded-lg bg-background">
           <thead>
             <tr>
               <th className="px-4 py-2 text-left text-neutral-300">Feature</th>

@@ -118,18 +118,18 @@ export default function OnboardingPage() {
                 className={`h-2 flex-1 rounded-full transition-all duration-300 ${
                   s <= step
                     ? "bg-gradient-to-r from-blue-500 to-purple-600"
-                    : "bg-neutral-800"
+                    : "bg-card"
                 }`}
               />
             ))}
           </div>
-          <p className="text-sm text-neutral-500">
+          <p className="text-sm text-muted-foreground">
             Step {step} of 4
           </p>
         </div>
 
         {/* Form Container */}
-        <div className="bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 rounded-3xl p-8 fade-in">
+        <div className="bg-gradient-to-br from-card to-popover border border-border rounded-3xl p-8 fade-in">
           {/* Step 1: Fitness Goals */}
           {step === 1 && (
             <div className="space-y-6">
@@ -148,7 +148,7 @@ export default function OnboardingPage() {
                         className={`p-3 rounded-lg font-semibold transition-all ${
                           fitnessLevel === id
                             ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-purple-500/30"
-                            : "bg-neutral-800 text-neutral-300 hover:bg-neutral-700"
+                            : "bg-card text-muted-foreground hover:bg-popover"
                         }`}
                       >
                         {label}
@@ -175,7 +175,7 @@ export default function OnboardingPage() {
                         className={`w-full p-3 rounded-lg font-medium transition-all text-left ${
                           goal === g
                             ? "bg-blue-500/30 border border-blue-500/50 text-blue-200"
-                            : "bg-neutral-800 border border-neutral-700 text-neutral-300 hover:border-neutral-600"
+                            : "bg-card border border-border text-muted-foreground hover:border-border"
                         }`}
                       >
                         {g}
@@ -200,7 +200,7 @@ export default function OnboardingPage() {
                     value={age}
                     onChange={(e) => setAge(e.target.value)}
                     placeholder="e.g., 25"
-                    className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-2 text-white placeholder-neutral-500 focus:outline-none focus:border-blue-500/50"
+                    className="w-full bg-card border border-border rounded-lg px-4 py-2 text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500/50"
                   />
                 </div>
 
@@ -213,7 +213,7 @@ export default function OnboardingPage() {
                     value={weight}
                     onChange={(e) => setWeight(e.target.value)}
                     placeholder="e.g., 75"
-                    className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-2 text-white placeholder-neutral-500 focus:outline-none focus:border-blue-500/50"
+                    className="w-full bg-card border border-border rounded-lg px-4 py-2 text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500/50"
                   />
                 </div>
 
@@ -226,7 +226,7 @@ export default function OnboardingPage() {
                     value={height}
                     onChange={(e) => setHeight(e.target.value)}
                     placeholder="e.g., 180"
-                    className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-2 text-white placeholder-neutral-500 focus:outline-none focus:border-blue-500/50"
+                    className="w-full bg-card border border-border rounded-lg px-4 py-2 text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500/50"
                   />
                 </div>
               </div>
@@ -247,7 +247,7 @@ export default function OnboardingPage() {
                       className={`p-3 rounded-lg font-semibold transition-all ${
                         trainingExperience === id
                           ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-purple-500/30"
-                          : "bg-neutral-800 text-neutral-300 hover:bg-neutral-700"
+                          : "bg-card text-muted-foreground hover:bg-popover"
                       }`}
                     >
                       {label}
@@ -275,7 +275,7 @@ export default function OnboardingPage() {
                       className={`p-3 rounded-lg font-semibold transition-all ${
                         trainingDays === day
                           ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-purple-500/30"
-                          : "bg-neutral-800 text-neutral-300 hover:bg-neutral-700"
+                          : "bg-card text-muted-foreground hover:bg-popover"
                       }`}
                     >
                       {day}x
@@ -306,7 +306,7 @@ export default function OnboardingPage() {
                       className={`w-full p-3 rounded-lg font-medium transition-all text-left ${
                         exercisePreferences.includes(id)
                           ? "bg-blue-500/30 border border-blue-500/50 text-blue-200"
-                          : "bg-neutral-800 border border-neutral-700 text-neutral-300 hover:border-neutral-600"
+                          : "bg-card border border-border text-muted-foreground hover:border-border"
                       }`}
                     >
                       {label}
@@ -331,7 +331,7 @@ export default function OnboardingPage() {
                       className={`p-3 rounded-lg font-semibold transition-all ${
                         equipment === id
                           ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-purple-500/30"
-                          : "bg-neutral-800 text-neutral-300 hover:bg-neutral-700"
+                          : "bg-card text-muted-foreground hover:bg-popover"
                       }`}
                     >
                       {label}
@@ -371,7 +371,7 @@ export default function OnboardingPage() {
                       className={`w-full p-3 rounded-lg font-medium transition-all text-left ${
                         dietaryPreferences.includes(id)
                           ? "bg-green-500/30 border border-green-500/50 text-green-200"
-                          : "bg-neutral-800 border border-neutral-700 text-neutral-300 hover:border-neutral-600"
+                          : "bg-card border border-border text-muted-foreground hover:border-border"
                       }`}
                     >
                       {label}
@@ -389,12 +389,12 @@ export default function OnboardingPage() {
           )}
 
           {/* Navigation Buttons */}
-          <div className="flex items-center justify-between mt-8 pt-6 border-t border-neutral-700">
+          <div className="flex items-center justify-between mt-8 pt-6 border-t border-border">
             <Button
               onClick={handlePrevious}
               disabled={step === 1 || isLoading}
               variant="outline"
-              className="bg-neutral-800 border-neutral-700 text-neutral-300 hover:bg-neutral-700 disabled:opacity-50"
+              className="bg-card border-border text-muted-foreground hover:bg-popover disabled:opacity-50"
             >
               ← Previous
             </Button>
