@@ -135,7 +135,10 @@ if (appConfig.isDevelopment) {
 /**
  * Get a config value safely with type checking
  */
-export function getConfig<T>(path: string, defaultValue?: T): T {
+export function getConfig<T = unknown>(
+  path: string,
+  defaultValue?: T
+): T | undefined {
   const keys = path.split(".");
   let value: any = {
     appConfig,
@@ -152,5 +155,5 @@ export function getConfig<T>(path: string, defaultValue?: T): T {
     value = value?.[key];
   }
 
-  return value !== undefined ? value : defaultValue;
+  return value !== undefined ? (value as T) : defaultValue;
 }

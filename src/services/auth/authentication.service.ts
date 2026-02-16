@@ -13,7 +13,8 @@ import {
   NotFoundError,
 } from "@/src/utils/errors";
 import { sanitizeEmail } from "@/src/utils/validation";
-import { securityConfig, TIME } from "@/src/config";
+import { securityConfig } from "@/src/config";
+import { TIME } from "@/src/constants";
 
 // ============================================================================
 // CORE AUTHENTICATION SERVICE

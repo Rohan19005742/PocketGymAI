@@ -41,36 +41,42 @@ const features = [
   },
 ];
 
-const colorMap: Record<string, { bg: string; text: string; border: string }> = {
+const colorMap: Record<string, { bg: string; text: string; border: string; glow: string }> = {
   blue: {
     bg: "from-blue-500/20 to-cyan-500/20",
     text: "text-blue-300",
     border: "hover:border-blue-400/50",
+    glow: "shadow-lg shadow-blue-500/20",
   },
   purple: {
     bg: "from-purple-500/20 to-pink-500/20",
     text: "text-purple-300",
     border: "hover:border-purple-400/50",
+    glow: "shadow-lg shadow-purple-500/20",
   },
   green: {
     bg: "from-green-500/20 to-emerald-500/20",
     text: "text-green-300",
     border: "hover:border-green-400/50",
+    glow: "shadow-lg shadow-green-500/20",
   },
   yellow: {
     bg: "from-yellow-500/20 to-orange-500/20",
     text: "text-yellow-300",
     border: "hover:border-yellow-400/50",
+    glow: "shadow-lg shadow-yellow-500/20",
   },
   pink: {
     bg: "from-pink-500/20 to-rose-500/20",
     text: "text-pink-300",
     border: "hover:border-pink-400/50",
+    glow: "shadow-lg shadow-pink-500/20",
   },
   cyan: {
     bg: "from-cyan-500/20 to-blue-500/20",
     text: "text-cyan-300",
     border: "hover:border-cyan-400/50",
+    glow: "shadow-lg shadow-cyan-500/20",
   },
 };
 

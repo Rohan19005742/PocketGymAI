@@ -1,7 +1,7 @@
-import NextAuth from "next-auth";
+import NextAuth, { type NextAuthOptions, type User } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-export const authOptions = {
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -32,16 +32,16 @@ export const authOptions = {
             throw new Error(error.error || "Login failed");
           }
 
-          const user = await response.json();
+          const userData = await response.json();
           return {
-            id: user.id,
-            name: user.name,
-            email: user.email,
-            image: user.avatar,
-            fitnessLevel: user.fitnessLevel,
-            goal: user.goal,
-            onboardingComplete: user.onboardingComplete,
-          };
+            id: userData.id,
+            name: userData.name,
+            email: userData.email,
+            image: userData.avatar,
+            fitnessLevel: userData.fitnessLevel,
+            goal: userData.goal,
+            onboardingComplete: userData.onboardingComplete,
+          } as User;
         } catch (error) {
           throw new Error(
             error instanceof Error ? error.message : "Login failed"
@@ -55,7 +55,7 @@ export const authOptions = {
     newUser: "/auth/signup",
   },
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user }: any) {
       if (user) {
         token.id = user.id;
         token.fitnessLevel = user.fitnessLevel;
@@ -64,7 +64,7 @@ export const authOptions = {
       }
       return token;
     },
-    async session({ session, token }) {
+    async session({ session, token }: any) {
       if (session.user) {
         session.user.id = token.id as string;
         session.user.fitnessLevel = token.fitnessLevel as string;

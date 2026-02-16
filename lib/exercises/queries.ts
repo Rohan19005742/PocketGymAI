@@ -121,7 +121,7 @@ export function getRepRange(
   programmingProfile: ExerciseProgrammingProfile,
   goal: TrainingGoal
 ): [number, number] {
-  return programmingProfile.recommendedRepRanges[goal];
+  return programmingProfile.recommendedRepRanges[goal] || [8, 12];
 }
 
 /**
@@ -132,7 +132,7 @@ export function getRestTime(
   programmingProfile: ExerciseProgrammingProfile,
   goal: TrainingGoal
 ): number {
-  return programmingProfile.recommendedRestTimes[goal];
+  return programmingProfile.recommendedRestTimes[goal] || 90;
 }
 
 /**
@@ -302,8 +302,11 @@ export function filterSafeExercises(
   userConditions: InjuryCondition[]
 ): FullExerciseContext[] {
   return contextList.filter((context) => {
-    if (!context.safetyConstraints) return true; // No constraints = safe
-    return isExerciseSafe(context.safetyConstraints, userConditions);
+    if (!context.safetyConstraints || context.safetyConstraints.length === 0) return true; // No constraints = safe
+    // All constraints must pass the safety check
+    return context.safetyConstraints.every((constraint) =>
+      isExerciseSafe(constraint, userConditions)
+    );
   });
 }
 
@@ -392,15 +395,26 @@ export function buildWorkout(options: {
     estimatedDuration += exerciseTime;
 
     // Add warnings if there are cautions
-    const cautions = getExerciseWarnings(
-      context.safetyConstraints || { id: 0, exerciseId: 0, avoidIf: [] },
-      options.userConditions
-    );
-    cautions.forEach((caution) => {
-      warnings.push(
-        `${context.metadata.name}: ${caution.modification}`
+    if (context.safetyConstraints && Array.isArray(context.safetyConstraints)) {
+      context.safetyConstraints.forEach((constraint) => {
+        const cautions = getExerciseWarnings(constraint, options.userConditions);
+        cautions.forEach((caution) => {
+          warnings.push(
+            `${context.metadata.name}: ${caution.modification}`
+          );
+        });
+      });
+    } else if (context.safetyConstraints) {
+      const cautions = getExerciseWarnings(
+        context.safetyConstraints,
+        options.userConditions
       );
-    });
+      cautions.forEach((caution) => {
+        warnings.push(
+          `${context.metadata.name}: ${caution.modification}`
+        );
+      });
+    }
   }
 
   return {
