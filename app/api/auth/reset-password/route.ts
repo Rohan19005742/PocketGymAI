@@ -1,74 +1,32 @@
-import { hash } from "bcryptjs";
-import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { NextRequest } from "next/server";
+import { AuthenticationService } from "@/src/services";
+import { ApiResponseBuilder, parseRequestBody } from "@/src/utils/api";
+import { ValidationBuilder } from "@/src/utils/validation";
+import { errorResponse } from "@/src/utils/errors";
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { token, email, password } = body;
+    const body = await parseRequestBody<Record<string, unknown>>(request);
 
-    if (!token || !email || !password) {
-      return NextResponse.json(
-        { error: "Missing required fields" },
-        { status: 400 }
-      );
+    // Validate input
+    const validation = new ValidationBuilder()
+      .validateRequired(body.token, "token")
+      .validateRequired(body.email, "email")
+      .validatePassword(String(body.password || ""))
+      .build();
+
+    if (!validation.valid) {
+      return ApiResponseBuilder.unprocessableEntity("Validation failed", validation.errors);
     }
 
-    if (password.length < 8) {
-      return NextResponse.json(
-        { error: "Password must be at least 8 characters" },
-        { status: 400 }
-      );
-    }
-
-    // Find user and validate reset token
-    const user = await prisma.user.findUnique({
-      where: { email },
-    });
-
-    if (!user) {
-      return NextResponse.json(
-        { error: "User not found" },
-        { status: 404 }
-      );
-    }
-
-    // Check if token matches and is not expired
-    if (!user.resetToken || user.resetToken !== token) {
-      return NextResponse.json(
-        { error: "Invalid reset token" },
-        { status: 400 }
-      );
-    }
-
-    if (!user.resetTokenExpiry || user.resetTokenExpiry < new Date()) {
-      return NextResponse.json(
-        { error: "Reset token has expired" },
-        { status: 400 }
-      );
-    }
-
-    // Hash new password and update user
-    const hashedPassword = await hash(password, 10);
-
-    await prisma.user.update({
-      where: { email },
-      data: {
-        password: hashedPassword,
-        resetToken: null,
-        resetTokenExpiry: null,
-      },
-    });
-
-    return NextResponse.json(
-      { message: "Password reset successfully" },
-      { status: 200 }
+    // Reset password
+    const user = await AuthenticationService.resetPassword(
+      body.token as string,
+      body.password as string
     );
+
+    return ApiResponseBuilder.success(user, 200, "Password reset successfully");
   } catch (error) {
-    console.error("Reset password error:", error);
-    return NextResponse.json(
-      { error: "Failed to reset password" },
-      { status: 500 }
-    );
+    return errorResponse(error, { endpoint: "/api/auth/reset-password", method: "POST" });
   }
 }

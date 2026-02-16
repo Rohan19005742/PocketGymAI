@@ -1,60 +1,28 @@
-import { compare } from "bcryptjs";
-import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { NextRequest } from "next/server";
+import { AuthenticationService } from "@/src/services";
+import { ApiResponseBuilder, parseRequestBody } from "@/src/utils/api";
+import { validateAuthCredentials } from "@/src/utils/validation";
+import { errorResponse } from "@/src/utils/errors";
+import { HTTP_STATUS } from "@/src/constants";
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { email, password } = body;
+    const body = await parseRequestBody<Record<string, unknown>>(request);
 
-    if (!email || !password) {
-      return NextResponse.json(
-        { error: "Missing email or password" },
-        { status: 400 }
-      );
+    // Validate input
+    const validation = validateAuthCredentials(body);
+    if (!validation.valid) {
+      return ApiResponseBuilder.unprocessableEntity("Validation failed", validation.errors);
     }
 
-    // Find user in database
-    const user = await prisma.user.findUnique({
-      where: { email },
+    // Authenticate user
+    const user = await AuthenticationService.login({
+      email: body.email as string,
+      password: body.password as string,
     });
 
-    if (!user || !user.password) {
-      return NextResponse.json(
-        { error: "User not found" },
-        { status: 401 }
-      );
-    }
-
-    // Verify password
-    const passwordMatch = await compare(password, user.password);
-
-    if (!passwordMatch) {
-      return NextResponse.json(
-        { error: "Invalid password" },
-        { status: 401 }
-      );
-    }
-
-    return NextResponse.json(
-      {
-        id: user.id,
-        email: user.email,
-        name: user.name,
-        image: user.image,
-        fitnessLevel: user.fitnessLevel,
-        goal: user.goal,
-        onboardingComplete: user.onboardingComplete,
-        completedWorkouts: user.completedWorkouts,
-        streakDays: user.streakDays,
-      },
-      { status: 200 }
-    );
+    return ApiResponseBuilder.success(user, HTTP_STATUS.OK);
   } catch (error) {
-    console.error("Login error:", error);
-    return NextResponse.json(
-      { error: "Login failed" },
-      { status: 500 }
-    );
+    return errorResponse(error, { endpoint: "/api/auth/login", method: "POST" });
   }
 }

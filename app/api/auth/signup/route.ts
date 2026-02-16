@@ -1,61 +1,29 @@
-import { hash } from "bcryptjs";
-import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { NextRequest } from "next/server";
+import { AuthenticationService } from "@/src/services";
+import { ApiResponseBuilder, parseRequestBody } from "@/src/utils/api";
+import { validateSignUpPayload } from "@/src/utils/validation";
+import { errorResponse } from "@/src/utils/errors";
+import { HTTP_STATUS } from "@/src/constants";
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { name, email, password, fitnessLevel, goal } = body;
+    const body = await parseRequestBody<Record<string, unknown>>(request);
 
-    if (!name || !email || !password) {
-      return NextResponse.json(
-        { error: "Missing required fields" },
-        { status: 400 }
-      );
+    // Validate input
+    const validation = validateSignUpPayload(body);
+    if (!validation.valid) {
+      return ApiResponseBuilder.unprocessableEntity("Validation failed", validation.errors);
     }
 
-    // Check if user already exists
-    const existingUser = await prisma.user.findUnique({
-      where: { email },
+    // Create new user
+    const user = await AuthenticationService.signup({
+      email: body.email as string,
+      password: body.password as string,
+      name: body.name as string,
     });
 
-    if (existingUser) {
-      return NextResponse.json(
-        { error: "User already exists" },
-        { status: 400 }
-      );
-    }
-
-    // Hash password
-    const hashedPassword = await hash(password, 10);
-
-    // Create new user in database
-    const newUser = await prisma.user.create({
-      data: {
-        name,
-        email,
-        password: hashedPassword,
-        fitnessLevel: fitnessLevel || "0-1",
-        goal: goal || "Build Muscle",
-      },
-    });
-
-    return NextResponse.json(
-      { 
-        message: "User created successfully", 
-        user: { 
-          id: newUser.id, 
-          email: newUser.email, 
-          name: newUser.name 
-        } 
-      },
-      { status: 201 }
-    );
+    return ApiResponseBuilder.created(user, "User created successfully");
   } catch (error) {
-    console.error("Signup error:", error);
-    return NextResponse.json(
-      { error: "An error occurred during signup" },
-      { status: 500 }
-    );
+    return errorResponse(error, { endpoint: "/api/auth/signup", method: "POST" });
   }
 }

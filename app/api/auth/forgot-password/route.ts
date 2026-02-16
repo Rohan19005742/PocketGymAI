@@ -1,61 +1,37 @@
-import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
-import { randomBytes } from "crypto";
+import { NextRequest } from "next/server";
+import { AuthenticationService } from "@/src/services";
+import { ApiResponseBuilder, parseRequestBody } from "@/src/utils/api";
+import { ValidationBuilder } from "@/src/utils/validation";
+import { errorResponse } from "@/src/utils/errors";
+import { appConfig } from "@/src/config";
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { email } = body;
+    const body = await parseRequestBody<Record<string, unknown>>(request);
 
-    if (!email) {
-      return NextResponse.json(
-        { error: "Email is required" },
-        { status: 400 }
-      );
+    // Validate email
+    const validation = new ValidationBuilder()
+      .validateEmail(String(body.email || ""))
+      .build();
+
+    if (!validation.valid) {
+      return ApiResponseBuilder.unprocessableEntity("Validation failed", validation.errors);
     }
 
-    const user = await prisma.user.findUnique({
-      where: { email },
-    });
+    // Request password reset
+    const resetToken = await AuthenticationService.requestPasswordReset(body.email as string);
 
-    if (!user) {
-      // Don't reveal if email exists for security
-      return NextResponse.json(
-        { message: "If this email exists, you'll receive a reset link shortly" },
-        { status: 200 }
-      );
-    }
+    // In a real app, send the token via email. For development, return it.
+    const resetLink = `${process.env.NEXTAUTH_URL || "http://localhost:3000"}/auth/reset-password?token=${resetToken}&email=${encodeURIComponent(body.email as string)}`;
 
-    // Generate reset token
-    const resetToken = randomBytes(32).toString("hex");
-    const resetTokenExpiry = new Date(Date.now() + 3600000); // 1 hour from now
-
-    // Save reset token to user
-    await prisma.user.update({
-      where: { email },
-      data: {
-        resetToken,
-        resetTokenExpiry,
-      },
-    });
-
-    // In a real app, you would send this via email
-    // For now, we'll return the reset link for development
-    const resetLink = `${process.env.NEXTAUTH_URL || "http://localhost:3000"}/auth/reset-password?token=${resetToken}&email=${encodeURIComponent(email)}`;
-
-    return NextResponse.json(
+    return ApiResponseBuilder.success(
       {
-        message: "If this email exists, you'll receive a reset link shortly",
-        // For development only
-        resetLink: process.env.NODE_ENV === "development" ? resetLink : undefined,
+        message: "If this email exists, a reset link will be sent",
+        resetLink: appConfig.isDevelopment ? resetLink : undefined,
       },
-      { status: 200 }
+      200
     );
   } catch (error) {
-    console.error("Forgot password error:", error);
-    return NextResponse.json(
-      { error: "Failed to process password reset request" },
-      { status: 500 }
-    );
+    return errorResponse(error, { endpoint: "/api/auth/forgot-password", method: "POST" });
   }
 }
