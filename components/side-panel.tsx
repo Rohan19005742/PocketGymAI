@@ -3,13 +3,18 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
-import { User, BarChart, MessageSquare, Apple } from "lucide-react";
+import { User, BarChart, MessageSquare, Apple, Dumbbell } from "lucide-react";
 
 const panelLinks = [
   {
     href: "/chat",
     label: "AI Coach",
     icon: <MessageSquare className="w-5 h-5" />,
+  },
+  {
+    href: "/workouts",
+    label: "Workouts",
+    icon: <Dumbbell className="w-5 h-5" />,
   },
   {
     href: "/nutritionist",

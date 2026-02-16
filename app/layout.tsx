@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PocketGymAI - Your Personal AI Gym Coach",
+  title: "StrivnAI - Your Personal AI Gym Coach",
   description: "Premium AI-powered personal training and fitness coaching in your pocket",
 };
 

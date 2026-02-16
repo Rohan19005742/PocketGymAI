@@ -18,7 +18,7 @@ export function Footer() {
                 <Dumbbell className="w-5 h-5 text-white" />
               </div>
               <span className="text-lg font-bold bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent group-hover:from-blue-200 group-hover:via-purple-200 group-hover:to-pink-200 transition-all duration-300">
-                PocketGymAI
+                StrivnAI
               </span>
             </Link>
             <p className="text-blue-200/60 text-sm leading-relaxed font-medium">
@@ -68,7 +68,7 @@ export function Footer() {
         {/* Divider */}
         <div className="border-t border-blue-500/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-blue-200/40 gap-4">
-            <p className="font-medium">&copy; 2026 PocketGymAI. All rights reserved.</p>
+            <p className="font-medium">&copy; 2026 StrivnAI. All rights reserved.</p>
             <div className="flex space-x-6">
               <Link href="/privacy" className="hover:text-blue-300 transition-colors font-medium">Privacy Policy</Link>
               <Link href="/terms" className="hover:text-blue-300 transition-colors font-medium">Terms of Service</Link>

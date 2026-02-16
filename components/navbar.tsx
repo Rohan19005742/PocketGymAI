@@ -18,7 +18,7 @@ export function Navbar() {
               <Dumbbell className="w-5 h-5 text-white" />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent group-hover:from-blue-200 group-hover:via-purple-200 group-hover:to-pink-200 transition-all duration-300">
-              PocketGymAI
+              StrivnAI
             </span>
           </Link>
 

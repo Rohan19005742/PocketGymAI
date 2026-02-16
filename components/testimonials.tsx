@@ -58,7 +58,7 @@ export function Testimonials() {
             Platform Capabilities
           </h2>
           <p className="text-xl text-neutral-300 max-w-2xl mx-auto">
-            Explore what PocketGymAI delivers to transform your fitness journey
+            Explore what StrivnAI delivers to transform your fitness journey
           </p>
         </div>
 

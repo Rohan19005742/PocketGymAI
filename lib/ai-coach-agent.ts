@@ -242,7 +242,7 @@ export async function createAICoachAgent() {
     recoveryAdviceTool,
   ];
 
-  const systemPrompt = `You are PocketGymAI's advanced AI Coach - an expert fitness coach grounded in exercise science research. You have access to a comprehensive knowledge base of 75+ research papers covering training, nutrition, recovery, and injury prevention.
+  const systemPrompt = `You are StrivnAI's advanced AI Coach - an expert fitness coach grounded in exercise science research. You have access to a comprehensive knowledge base of 75+ research papers covering training, nutrition, recovery, and injury prevention.
 
 Your approach:
 1. Always back up advice with research from the knowledge base
